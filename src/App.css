@@ -1,38 +1,295 @@
-.App {
-  text-align: center;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+
+*{
+    font-family: 'Righteous',sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto',sans-serif;
+    
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.nav-taps li{
+    position: relative;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+li{
+    cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.nav-taps li::before{
+    content: '';
+position: absolute;
+bottom: -10px;
+width: 0%;
+height: 4px;
+background-color: #976E72;
+transition: all 0.3s;
+border-radius: 9999px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav-taps li:hover::before{
+width: 100%;
+}
+
+
+.sidebar{
+top: 0;
+width: 60%;
+background-color: #eee;
+left: -100%;
+transition: all 0.5s;
+position: fixed;
+display: flex;
+flex-direction: column;
+gap: 1.5rem;
+height: 100%;
+z-index: 10;
+}
+
+.sidebar div ul li{
+    margin: 0 auto; 
+    width: 80%;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.sidebar div ul li:hover{
+    background-color: #cdcdcd;
+    transition: all 0.3s;
+}
+
+.active{
+left: 0%;
+}
+
+div .register:hover{
+ color: white;
+ background-color:#976E72 ;
+ transition: all 0.3s;
+}
+
+.landing-p{
+    color: black;
+    opacity: 50%;
+}
+
+@media (min-width:767px){
+    
+    .backimg{
+        height: calc(100vh - 250px);
+    }
+}
+
+.backimg{
+    background: url('./images/Vector\ 1.png');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: auto;
+}
+
+
+
+
+.main-btn{
+color: white;
+background-color: #976E72;
+}
+
+.sec-btn{
+    color: black;
+    border: 1px solid black;
+    border-radius: 9999px;
+}
+.sec-btn:hover{
+    color: white;
+    background-color: #976E72;
+    transition: all 0.3s;
+    border: none;
+}
+
+.main-btn:hover{
+color: #976E72;
+background-color: white;
+transition: all 0.3s;
+}
+
+.main-text{
+    font-size: xx-large;
+    font-weight: bolder;
+}
+
+.icon{
+    border-radius: 99999px;
+    cursor: pointer;
+    background-color: rgb(226, 232, 240);
+    width: 3rem;
+    height: 3rem;
+    position: absolute;
+}
+
+.icon:hover{
+    background-color: #976E72;
+    transition: all 0.3s;
+    color: white;
+}
+
+
+@media (min-width:1577px){
+    .img-slider::before{
+        content: '';
+        width: calc(100% + 60px);
+        height: 150px;
+        border-radius: 9999px;
+        z-index: -1;
+        position: absolute;
+        background-color: rgb(226, 232, 240);
+        bottom: -60px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+}
+
+.img-slider img{
+    cursor: pointer;
+position: relative;
+}
+
+
+
+@media (max-width:767px){
+    .Car-card{
+        width: 80%;
+    }
+}
+
+.footer-p{
+    color: #808080;
+}
+
+.Footer-div-ol ul li{
+    font-family: 'Inter',sans-serif;
+}
+
+.footer-icon li{
+    transform: scale(1.3);
+}
+
+.CarPageimg{
+background: url('./images/Vector\ 2.png');
+background-repeat: no-repeat;
+width: 100%;
+height: 100%;
+z-index: -1;
+position: absolute;
+left: 0;
+top: 0;
+}
+
+.Cart-mainText::before{
+    content: "";
+    position: absolute;
+    width: 10%;
+    height: 5px;
+    border-radius: 9999px;
+    bottom: -10px;
+    left: 0;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width:767px){
+    
+    .Cart-mainText::before{
+        width: 35%;
+    }
+}
+
+.CarDetailimg{
+background: url('./images/Vector\ 3.png');
+background-repeat: no-repeat;
+background-size: contain;
+width: 100%;
+height: calc(100vh - 94px);
+z-index: -1;
+position: absolute;
+background-position: right;
+}
+
+@media (max-width:1024px){
+    .CarDetailimg{
+        background:none ;
+    }
+}
+
+.EC,.arrow{
+    color: #976E72;
+}
+
+.e{
+    width: fit-content;
+}
+
+.c1,.c2,.c3{
+width: 49px;
+height: 49px;
+border-radius: 50%;
+cursor: pointer;
+}
+.c1{
+    background-color: white;
+    border: 2px solid #976E72;
+}
+
+.c2{
+    background-color: black;
+}
+
+.c3{
+    background-color: #6799D5;
+}
+
+.min,.max{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+.min{
+    background-color: white;
+    color: #976E72;
+}
+
+.max{
+    background-color: #976E72;
+    color: white;
+}
+
+.btn{
+    padding: 10px 20px;
+    border-radius: 9999px;
+}
+
+.details-btn-main{
+    color: white;
+    background-color: #976E72;
+}
+
+.details-btn-sec{
+    color: #976E72;
+    background-color: white;
+    border: 1px solid black;
 }
