@@ -13,7 +13,7 @@ function App() {
       <NavBar/>
        <Routes>
         
-        <Route path='/' element={<Mainpage/>}/>
+        <Route path='/Car-Store' element={<Mainpage/>}/>
         
         <Route path='/Cart-Order' element={<Cart/>}/>
         

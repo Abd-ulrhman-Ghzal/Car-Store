@@ -31,7 +31,7 @@ export default function NavBar() {
       </div>
       <div>
       <ul className='flex flex-col gap-10'>
-            <li onClick={()=>navigation('/')}><button > Home</button></li>
+            <li onClick={()=>navigation('/Car-Store')}><button > Home</button></li>
             <li onClick={()=>navigation('/Catalogue')}><button > Catalogue</button></li>
             <li onClick={()=>navigation('/Contact-Us')}><button > Contact Us</button></li>
             <li onClick={()=>navigation('/Help')}><button > Help</button></li>
@@ -50,7 +50,7 @@ export default function NavBar() {
           </div>
           <div>
           <ul className=' md:flex items-center justify-center flex-1 gap-5 lg:gap-10 hidden nav-taps'>
-            <li ><button onClick={()=>navigation('/')}> Home</button></li>
+            <li ><button onClick={()=>navigation('/Car-Store')}> Home</button></li>
             <li ><button onClick={()=>navigation('/Catalogue')}> Catalogue</button></li>
             <li ><button onClick={()=>navigation('/Contact Us')}> Contact Us</button></li>
             <li ><button onClick={()=>navigation('/Help')}> Help</button></li>
