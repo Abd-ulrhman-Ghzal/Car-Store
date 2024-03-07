@@ -58,7 +58,7 @@ export default function NavBar() {
           </div>
           <div className='flex justify-center items-center gap-4' style={{color:'#976E72'}}>
            <div>
-           <img src={cart} alt='' className='max-w-full scale-75 cursor-pointer' onClick={()=>navigation('/Cart-Order')}/>
+           <img src={cart} alt='' className='max-w-full scale-75 cursor-pointer' onClick={()=>navigation('/Car-Store/Cart-Order')}/>
            </div>
            <div>       
             <button className='rounded-3xl border p-3 scale-90 register' >Register</button>
