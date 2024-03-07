@@ -21,7 +21,7 @@ export default function Landing() {
           <p className='landing-p'>The culmimination of comfort,luxury,and powerrul living is embodied <br/>in the First-Ever BMWX7 -the biggest BMW ever built.</p>
         </div>
         <div>
-        <button className='rounded-3xl border p-3 main-btn' onClick={()=>navigation('/Car-Detail')}>EXPLORE</button>
+        <button className='rounded-3xl border p-3 main-btn' onClick={()=>navigation('Car-Store/Car-Detail')}>EXPLORE</button>
         </div>
       </div>
       
