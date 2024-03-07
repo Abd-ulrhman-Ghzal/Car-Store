@@ -3,7 +3,7 @@ import logo from '../images/Logo.png'
 import cart from '../images/cart.png'
 import * as Faicons from "react-icons/fa";
 import * as Ioicons from "react-icons/io5";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function NavBar() {
 
@@ -31,10 +31,10 @@ export default function NavBar() {
       </div>
       <div>
       <ul className='flex flex-col gap-10'>
-            <li onClick={()=>navigation('/Car-Store')}><button > Home</button></li>
-            <li onClick={()=>navigation('/Catalogue')}><button > Catalogue</button></li>
-            <li onClick={()=>navigation('/Contact-Us')}><button > Contact Us</button></li>
-            <li onClick={()=>navigation('/Help')}><button > Help</button></li>
+            <li ><Link to='/Car-Store'> Home</Link></li>
+            <li ><Link to='/Catalogue'> Catalogue</Link></li>
+            <li ><Link to='/Contact-Us'> Contact Us</Link></li>
+            <li ><Link to='/Help'> Help</Link></li>
         </ul>
       </div>
     
@@ -50,10 +50,10 @@ export default function NavBar() {
           </div>
           <div>
           <ul className=' md:flex items-center justify-center flex-1 gap-5 lg:gap-10 hidden nav-taps'>
-            <li ><button onClick={()=>navigation('/Car-Store')}> Home</button></li>
-            <li ><button onClick={()=>navigation('/Catalogue')}> Catalogue</button></li>
-            <li ><button onClick={()=>navigation('/Contact Us')}> Contact Us</button></li>
-            <li ><button onClick={()=>navigation('/Help')}> Help</button></li>
+            <li ><Link to='/Car-Store'> Home</Link></li>
+            <li ><Link to='/Catalogue'> Catalogue</Link></li>
+            <li ><Link to='/Contact-Us'> Contact Us</Link></li>
+            <li ><Link to='/Help'> Help</Link></li>
           </ul>
           </div>
           <div className='flex justify-center items-center gap-4' style={{color:'#976E72'}}>

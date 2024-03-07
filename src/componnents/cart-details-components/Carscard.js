@@ -16,7 +16,7 @@ export default function Carscard({src,cartype,color}) {
       </div>
     </div>
     <div>
-        <p>$ {Math.floor(Math.random() * 6000) + 1}</p>
+        <p>$ {Math.floor(Math.random() * (6000 - 4000 ) + 4000)}</p>
     </div>
     <div>
         <p>{color}</p>

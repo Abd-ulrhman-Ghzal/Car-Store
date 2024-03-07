@@ -3,11 +3,10 @@ import seat from '../../images/seat.png'
 import whell from '../../images/wheel.png'
 import speedrpm from '../../images/speadRpm.png'
 import * as Ioicons from "react-icons/io";
-import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 export default function Carcard({src,cartype}) {
-  const navigation=useNavigate()
   return (
     <div className='flex flex-col gap-7 items-center Car-card' >
          <div>
@@ -40,7 +39,7 @@ export default function Carcard({src,cartype}) {
             <button className=''>Details</button>
             <Ioicons.IoMdArrowDropright/>
           </div>
-          <button className='rounded-3xl border p-3 main-btn' onClick={()=>navigation('/Car-Store/Cart-Order')}>Buy Now</button>
+          <Link className='rounded-3xl border p-3 main-btn' to='/Car-Store/Cart-Order'>Buy Now</Link>
          </div>
     </div>
   )

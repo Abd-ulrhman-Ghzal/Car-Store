@@ -4,10 +4,10 @@ import * as Faicons from "react-icons/fa";
 import * as Ioicons from "react-icons/io";
 import * as Tbicons from 'react-icons/tb'
 import * as AIicons from 'react-icons/ai'
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function Landing() {
-  const navigation=useNavigate()
+
   
   return (
     <>
@@ -21,7 +21,7 @@ export default function Landing() {
           <p className='landing-p'>The culmimination of comfort,luxury,and powerrul living is embodied <br/>in the First-Ever BMWX7 -the biggest BMW ever built.</p>
         </div>
         <div>
-        <button className='rounded-3xl border p-3 main-btn' onClick={()=>navigation('/Car-Store/Car-Detail')}>EXPLORE</button>
+        <Link to='/Car-Store/Car-Detail' className='rounded-3xl border p-3 main-btn' >EXPLORE</Link>
         </div>
       </div>
       

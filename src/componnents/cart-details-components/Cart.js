@@ -6,6 +6,8 @@ import volvo from '../../images/stition.png'
 import bmw2 from '../../images/bmw 2.png'
 
 export default function Cart() {
+  const color=['Red',"black","yellow","Blue"]
+  const random=Math.floor(Math.random() * color.length)
 
   return (
   <>
@@ -22,10 +24,10 @@ export default function Cart() {
            <h1 className='col-start-6'>Delete</h1>
          </div>
          <div className='grid grid-cols-6 md:gap-12 gap-3 justify-center items-center'>
-           <Carscard src={audi} cartype={'AUDI'} color={'Black'}/>
-           <Carscard src={bmw} cartype={'BMW M5'} color={'Black'}/>
-           <Carscard src={volvo} cartype={'VOLVO'} color={'Black'}/>
-           <Carscard src={bmw2} cartype={'BMW'} color={'Black'}/>
+           <Carscard src={audi} cartype={'AUDI'} color={color[random]}/>
+           <Carscard src={bmw} cartype={'BMW M5'} color={color[random]}/>
+           <Carscard src={volvo} cartype={'VOLVO'} color={color[random]}/>
+           <Carscard src={bmw2} cartype={'BMW'} color={color[random]}/>
          </div>
         </div>
       </div>
