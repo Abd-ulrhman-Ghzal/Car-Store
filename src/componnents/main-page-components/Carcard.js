@@ -40,7 +40,7 @@ export default function Carcard({src,cartype}) {
             <button className=''>Details</button>
             <Ioicons.IoMdArrowDropright/>
           </div>
-          <button className='rounded-3xl border p-3 main-btn' onClick={()=>navigation('Car-Store/Cart-Order')}>Buy Now</button>
+          <button className='rounded-3xl border p-3 main-btn' onClick={()=>navigation('/Car-Store/Cart-Order')}>Buy Now</button>
          </div>
     </div>
   )
