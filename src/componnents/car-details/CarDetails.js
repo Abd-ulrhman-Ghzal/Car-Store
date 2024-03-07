@@ -4,7 +4,7 @@ import * as FAicons from 'react-icons/fa6'
 import car from '../../images/porcha2.png'
 import CarsSlider from './CarsSlider'
 import * as MDicon from 'react-icons/md'
-import {  useNavigate } from 'react-router-dom'
+import {  Link, useNavigate } from 'react-router-dom'
 
 
 export default function CarDetails({src,Cartype}) {
@@ -94,8 +94,8 @@ export default function CarDetails({src,Cartype}) {
               </div>
             </div>
             <div className='flex justify-around flex-wrap gap-6 xl:gap-20'>
-              <button className='btn details-btn-sec' onClick={()=>navigation('/Car-Store/Cart-Order')}>Add Too Cart</button>
-              <button className='btn details-btn-main' onClick={()=>navigation('/Order-Confirmation')} >Buy Now</button>
+              <Link to='/Car-Store/Cart-Order' className='btn details-btn-sec'>Add Too Cart</Link>
+              <Link to='/Order-Confirmation' className='btn details-btn-main' >Buy Now</Link>
             </div>
           </div>
         </div>
