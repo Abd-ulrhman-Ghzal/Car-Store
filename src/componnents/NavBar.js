@@ -11,7 +11,10 @@ export default function NavBar() {
 
    const [showsidebar,Setshowsidebar]=useState(false)
    const navigation=useNavigate()
-   
+   const root = document.getElementById('root');
+   if(showsidebar===true){
+    root.onclick(()=>{Setshowsidebar(false)})
+   }
 
   return (
     <div className='md:container mx-auto pt-8 pb-3'>
@@ -31,10 +34,10 @@ export default function NavBar() {
       </div>
       <div>
       <ul className='flex flex-col gap-10'>
-            <li ><Link to='/Car-Store'> Home</Link></li>
-            <li ><Link to='/Catalogue'> Catalogue</Link></li>
-            <li ><Link to='/Contact-Us'> Contact Us</Link></li>
-            <li ><Link to='/Help'> Help</Link></li>
+            <li><Link to='/Car-Store'> Home</Link></li>
+            <li><Link to='/Catalogue'> Catalogue</Link></li>
+            <li><Link to='/Contact-Us'> Contact Us</Link></li>
+            <li><Link to='/Help'> Help</Link></li>
         </ul>
       </div>
     

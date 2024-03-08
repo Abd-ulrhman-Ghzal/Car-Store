@@ -17,6 +17,11 @@ body{
     
 }
 
+a{
+    width: 100%;
+    display: block;
+}
+
 .nav-taps li{
     position: relative;
 }

@@ -4,11 +4,10 @@ import * as FAicons from 'react-icons/fa6'
 import car from '../../images/porcha2.png'
 import CarsSlider from './CarsSlider'
 import * as MDicon from 'react-icons/md'
-import {  Link, useNavigate } from 'react-router-dom'
+import {  Link } from 'react-router-dom'
 
 
 export default function CarDetails({src,Cartype}) {
-  const navigation=useNavigate()
   const [carnum,setCarNum]=useState(1 )
   const [price,Setprise]=useState(250)
   async function handelmin(){
