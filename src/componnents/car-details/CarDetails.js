@@ -92,7 +92,7 @@ export default function CarDetails({src,Cartype}) {
                </div>
               </div>
             </div>
-            <div className='flex justify-around flex-wrap gap-6 xl:gap-20'>
+            <div className='flex justify-around flex-wrap lg:flex-nowrap gap-6 xl:gap-20'>
               <Link to='/Car-Store/Cart-Order' className='btn details-btn-sec flex justify-center items-center'>Add Too Cart</Link>
               <Link to='/Order-Confirmation' className='btn details-btn-main flex justify-center items-center' >Buy Now</Link>
             </div>

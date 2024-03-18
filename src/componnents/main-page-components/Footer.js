@@ -20,8 +20,8 @@ export default function Footer() {
                 Menu
             </li>
             <ul className='flex flex-col gap-4'>
-                    {menutaps.map((e)=>{
-                       return <li className='text-gray-600'>{e}</li>
+                    {menutaps.map((e,index)=>{
+                       return <li key={index} className='text-gray-600'>{e}</li>
                     })}
                 </ul>
             </ol>
@@ -30,8 +30,8 @@ export default function Footer() {
                 Further Information
             </li>
             <ul className='flex flex-col gap-4'>
-                    {FItaps.map((e)=>{
-                       return <li className='text-gray-600'>{e}</li>
+                    {FItaps.map((e,index)=>{
+                       return <li key={index} className='text-gray-600'>{e}</li>
                     })}
                 </ul>
             </ol> 
@@ -40,8 +40,8 @@ export default function Footer() {
                 Contact Us
             </li>
             <ul className='flex flex-col gap-4'>
-                    {ContactUs.map((e)=>{
-                       return <li className='text-gray-600'>{e}</li>
+                    {ContactUs.map((e,index)=>{
+                       return <li  key={index}className='text-gray-600'>{e}</li>
                     })}
                 </ul>
             </ol>

@@ -1,23 +1,20 @@
-import React,{useState} from 'react'
+import React,{useContext, useState} from 'react'
 import logo from '../images/Logo.png'
 import cart from '../images/cart.png'
 import * as Faicons from "react-icons/fa";
 import * as Ioicons from "react-icons/io5";
 import { Link, useNavigate } from 'react-router-dom';
+import { CartContext } from '../Context/Context';
 
 export default function NavBar() {
 
   
-
+   const {cartItem}=useContext(CartContext)
    const [showsidebar,Setshowsidebar]=useState(false)
    const navigation=useNavigate()
-   const root = document.getElementById('root');
-   if(showsidebar===true){
-    root.onclick(()=>{Setshowsidebar(false)})
-   }
 
   return (
-    <div className='md:container mx-auto pt-8 pb-3'>
+    <div className='md:container mx-auto mt-8  pb-3 '>
 
       <div className={showsidebar?' sidebar active md:hidden':' sidebar md:hidden '}>
     
@@ -60,8 +57,9 @@ export default function NavBar() {
           </ul>
           </div>
           <div className='flex justify-center items-center gap-4' style={{color:'#976E72'}}>
-           <div>
+           <div className='relative p-3'>
            <img src={cart} alt='' className='max-w-full scale-75 cursor-pointer' onClick={()=>navigation('/Car-Store/Cart-Order')}/>
+           <span className='absolute right-0 top-0 text-white bg-red-600 rounded-full px-2 '>{cartItem.length}</span>
            </div>
            <div>       
             <button className='rounded-3xl border p-3 scale-90 register' >Register</button>

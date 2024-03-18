@@ -2,7 +2,7 @@ import React from 'react'
 import * as IOicon from 'react-icons/io'
 
 
-export default function Carscard({src,cartype,color}) {
+export default function Carscard({src,cartype,price}) {
   return (
     <>
     <div className='col-start-1 col-end-3 md:col-end-4 gap-y-16 gap-x-4'>
@@ -18,10 +18,10 @@ export default function Carscard({src,cartype,color}) {
       </div>
     </div>
     <div>
-        <p className='flex flex-col sm:flex-row'>{Math.floor(Math.random() * (1000 - 500 ) + 500)} $</p>
+        <p className='flex flex-col sm:flex-row'>{price}$</p>
     </div>
     <div>
-        <p>{color}</p>
+        <p>black</p>
     </div>
     <div>
     <IOicon.IoMdClose className='text-xl cursor-pointer'/>
