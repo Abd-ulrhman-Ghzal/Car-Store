@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Car-Store/static/css/main.25803748.css",
-    "main.js": "/Car-Store/static/js/main.2a9ce47b.js",
+    "main.css": "/Car-Store/static/css/main.219177a3.css",
+    "main.js": "/Car-Store/static/js/main.a0ab802b.js",
     "static/media/bmw.png": "/Car-Store/static/media/bmw.a8d005ba671f1fc10b68.png",
     "static/media/audi.png": "/Car-Store/static/media/audi.27e16600cbf4356f97d2.png",
     "static/media/porcha2.png": "/Car-Store/static/media/porcha2.494e00d579abfd58a8ab.png",
@@ -18,11 +18,11 @@
     "static/media/Rectangle 48.png": "/Car-Store/static/media/Rectangle 48.19e07f2c7a6df52cf03d.png",
     "static/media/Vector 2.png": "/Car-Store/static/media/Vector 2.4222c8448d6d4d310f0b.png",
     "index.html": "/Car-Store/index.html",
-    "main.25803748.css.map": "/Car-Store/static/css/main.25803748.css.map",
-    "main.2a9ce47b.js.map": "/Car-Store/static/js/main.2a9ce47b.js.map"
+    "main.219177a3.css.map": "/Car-Store/static/css/main.219177a3.css.map",
+    "main.a0ab802b.js.map": "/Car-Store/static/js/main.a0ab802b.js.map"
   },
   "entrypoints": [
-    "static/css/main.25803748.css",
-    "static/js/main.2a9ce47b.js"
+    "static/css/main.219177a3.css",
+    "static/js/main.a0ab802b.js"
   ]
 }
