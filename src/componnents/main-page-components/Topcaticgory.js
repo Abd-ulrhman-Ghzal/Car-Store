@@ -8,9 +8,11 @@ import bmw from '../../images/bmw.png'
 import volvo from '../../images/stition.png'
 import bmw2 from '../../images/bmw 2.png'
 import { CartContext } from '../../Context/Context';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Topcaticgory() {
-  const {cartItem,setCartItem}=useContext(CartContext)
+  const {setCartItem}=useContext(CartContext)
   const Cars=[
     {
     "_id":'1',
@@ -40,8 +42,29 @@ const data=Cars.filter(p=>{
 })
 setCartItem(oldData=>[data,...oldData])
 }
+const notify = () => 
+{
+  toast.success('Item Added To Cart', {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+    });
+}
+
+const NotificationAndAddCart=(id)=>{
+  notify();
+  addcart(id)
+}
+
+
   return (
     <div className='container mx-auto mt-32 mb-20 '>
+      <ToastContainer/>
       <div className='flex flex-col'>
         <h1 className='text-center main-text'>Top Categorise</h1>
         <div className='flex mt-10 xl:justify-around items-center flex-wrap justify-center gap-16'>
@@ -80,7 +103,7 @@ setCartItem(oldData=>[data,...oldData])
                    <Ioicons.IoMdArrowDropright/>
                  </div>
                  <div>
-                 <button className='rounded-3xl border p-3 main-btn' onClick={()=>{addcart(el._id)}}>Buy Now</button>
+                 <button className='rounded-3xl border p-3 main-btn' onClick={()=>NotificationAndAddCart(el._id)}>Buy Now</button>
                  </div>
                 </div>
              </div>

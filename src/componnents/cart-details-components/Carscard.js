@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import * as IOicon from 'react-icons/io'
+import { CartContext } from '../../Context/Context'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
-export default function Carscard({src,cartype,price}) {
+export default function Carscard({src,cartype,price,id}) {
+  const {removeCart}=useContext(CartContext)
+
+
   return (
     <>
+    <ToastContainer className={'container'}/>
     <div className='col-start-1 col-end-3 md:col-end-4 gap-y-16 gap-x-4'>
       <div className='grid grid-cols-3 gap-4  items-center'>
         <div>
@@ -23,9 +30,9 @@ export default function Carscard({src,cartype,price}) {
     <div>
         <p>black</p>
     </div>
-    <div>
-    <IOicon.IoMdClose className='text-xl cursor-pointer'/>
-    </div>
+    <button onClick={()=>removeCart(id)}>
+    <IOicon.IoMdClose className='text-xl cursor-pointer' />
+    </button>
     </>
   )
 }

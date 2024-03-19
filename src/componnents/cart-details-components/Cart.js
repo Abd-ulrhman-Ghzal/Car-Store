@@ -23,10 +23,10 @@ export default function Cart() {
         </div>
         <div className='grid grid-cols-5 md:grid-cols-6 gap-y-16 gap-x-4 justify-center items-center'>
         {
-         cartItem.map(e=>{
-          return e.map(p=>{
+         cartItem.map((e)=>{
+          return e.map((p)=>{
             return(
-              <Carscard src={p.src} cartype={p.cartype} price={p.price}/>
+              <Carscard src={p.src} cartype={p.cartype} price={p.price} id={p._id}/>
             )
           })    
         })
