@@ -12,23 +12,25 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function Topcaticgory() {
-  const {setCartItem}=useContext(CartContext)
+  const {cartItem,setCartItem}=useContext(CartContext)
   const Cars=[
     {
     "_id":'1',
     "src":audi,
     "cartype":'AUDI',
-    "price":599
+    "price":599,
   },{
     "_id":'2',
     "src":bmw,
     "cartype":'BMW M5',
-    "price":699
+    "price":699,
+
   },{
     "_id":'3',
     "src":volvo,
     "cartype":'Volvo',
-    "price":399
+    "price":399,
+
   },{
     "_id":'4',
     "src":bmw2,
@@ -37,10 +39,18 @@ export default function Topcaticgory() {
   }
 ]
 const addcart=(id)=>{
-const data=Cars.filter(p=>{
-  return p._id===id
-})
-setCartItem(oldData=>[data,...oldData])
+  const existItem=cartItem.find(item=>item._id === id)
+  if(existItem){
+    setCartItem(oldData=>oldData.map(item=>{
+     return item._id === id ? { ...item, quantity: item.quantity + 1,totalPrice:item.price * (item.quantity + 1) } : item
+    }))
+  }else{
+    const data=Cars.find(car=>{
+      return car._id === id
+    })
+    setCartItem(oldData => [{ ...data, quantity: 1 ,totalPrice: data.price}, ...oldData]);
+  }
+  
 }
 const notify = () => 
 {

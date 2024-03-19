@@ -1,18 +1,15 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import * as IOicon from 'react-icons/io'
 import { CartContext } from '../../Context/Context'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 
-export default function Carscard({src,cartype,price,id}) {
+export default function Carscard({src,cartype,price,id,Quan}) {
+
   const {removeCart}=useContext(CartContext)
-
 
   return (
     <>
-    <ToastContainer className={'container'}/>
-    <div className='col-start-1 col-end-3 md:col-end-4 gap-y-16 gap-x-4'>
+    <div className='col-start-1 col-end-2  md:col-end-4 gap-y-16 gap-x-4'>
       <div className='grid grid-cols-3 gap-4  items-center'>
         <div>
         <img src={src} alt='' className='max-w-full md:col-end-2 hidden md:block'/>
@@ -24,14 +21,17 @@ export default function Carscard({src,cartype,price,id}) {
         </div>
       </div>
     </div>
-    <div>
+    <div className='md:col-start-4 col-start-2'>
         <p className='flex flex-col sm:flex-row'>{price}$</p>
     </div>
-    <div>
+    <div className='md:col-start-5 col-start-3'>
         <p>black</p>
     </div>
-    <button onClick={()=>removeCart(id)}>
-    <IOicon.IoMdClose className='text-xl cursor-pointer' />
+    <div className='md:col-start-6 col-start-4'>
+      <p>{Quan}</p>
+    </div>
+    <button className='md:col-start-7 col-start-5'>
+    <IOicon.IoMdClose className='text-xl cursor-pointer' onClick={()=>removeCart(id)}/>
     </button>
     </>
   )

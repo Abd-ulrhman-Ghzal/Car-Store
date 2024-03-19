@@ -5,8 +5,8 @@ export const CartContext=createContext()
 export default function Context({children}) {
     const [cartItem,setCartItem]=useState([])
     const removeCart = (id) => {
-      setCartItem(oldData => oldData.splice(id,1));
-
+     const removedCar= cartItem.filter(item=>item._id !== id)
+      setCartItem(removedCar);
     };
   return (
     <CartContext.Provider value={{cartItem,setCartItem,removeCart}}>
