@@ -8,9 +8,9 @@ export default function CarsSlider() {
   
   return(
     <>
-      {imges.map(e=>{
+      {imges.map((e,index)=>{
         return(
-          <div>
+          <div key={index}>
             <img src={e} alt='' className='max-w-full'/>
           </div>
         )

@@ -4,13 +4,16 @@ import Mainpage from './componnents/main-page-components/Mainpage';
 import { BrowserRouter ,Routes,Route } from 'react-router-dom';
 import Cart from './componnents/cart-details-components/Cart';
 import CarDetails from './componnents/car-details/CarDetails';
-import Contextprovider from './Context/Context';
+import { useContext } from 'react';
+
+import { CartContext } from './Context/Context';
 
 function App() {
+  const {Cars}=useContext(CartContext)
   return (
     <>
     <BrowserRouter>
-      <Contextprovider>
+      
       <NavBar/>
        <Routes>
         
@@ -18,9 +21,11 @@ function App() {
         
         <Route path='/Car-Store/Cart-Order' element={<Cart/>}/>
         
-        <Route path='/Car-Store/Car-Detail' element={<CarDetails/>}/>
+        {Cars.map((e,index)=>{
+          return <Route key={index} path={`/Car-Store/Car-Detail/${e.cartype}`} element={<CarDetails src={e.src} Cartype={e.cartype} Price={e.price} EnginCapactiy={e.EnginCapactiy} color={e.color} id={e._id}/>}/>
+        })}
+        
        </Routes>
-       </Contextprovider>
     </BrowserRouter>
       
     </>

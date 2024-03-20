@@ -1,56 +1,97 @@
-import React, { useState } from 'react'
-import * as IOicons from 'react-icons/io'
-import * as FAicons from 'react-icons/fa6'
-import car from '../../images/porcha2.png'
-import CarsSlider from './CarsSlider'
-import * as MDicon from 'react-icons/md'
-import {  Link } from 'react-router-dom'
+import React, { useContext, useState } from 'react';
+import * as IOicons from 'react-icons/io';
+import * as FAicons from 'react-icons/fa6';
+import CarsSlider from './CarsSlider';
+import * as MDicon from 'react-icons/md';
+import { Link } from 'react-router-dom';
+import { CartContext } from '../../Context/Context';
+import { ToastContainer, toast } from 'react-toastify';
+
+export default function CarDetails({ id, src, Cartype, Price, EnginCapactiy, color }) {
+  const [quantity, setQuantity] = useState(1);
+  const { cartItem, setCartItem, Cars } = useContext(CartContext);
+  const [activeColor, setActiveColor] = useState('Black');
 
 
-export default function CarDetails({src,Cartype}) {
-  const [carnum,setCarNum]=useState(1 )
-  const [price,Setprise]=useState(250)
-  async function handelmin(){
-    if(carnum>1){
-      setCarNum(carnum - 1)
-      Setprise(price - 250)  
+  const notify = () => 
+{
+  toast.success('Item Added To Cart', {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+    });
+}
+
+  const handleAddQuantity = () => {
+    setQuantity(prevQuantity => prevQuantity + 1);
+  };
+
+  const handleMinusQuantity = () => {
+    if (quantity > 1) {
+      setQuantity(prevQuantity => prevQuantity - 1);
     }
-    
-  }
+  };
 
-  function handelmax(){
-    setCarNum(carnum + 1)
-    Setprise(price + 250)
-    
-  }
+  const totalPrice = Price * quantity;
 
+  const DetailAddCart = (id, color) => {
+    const existingOrderIndex = cartItem.findIndex(item => item._id === id && item.SelectedColor === color);
+
+    if (existingOrderIndex !== -1) {
+      // If the same car with the same color exists, update quantity
+      const updatedCart = [...cartItem];
+      updatedCart[existingOrderIndex].quantity += quantity;
+      setCartItem(updatedCart);
+    } else {
+      // If the car with the same color doesn't exist, add a new order
+      const data = Cars.find(car => car._id === id);
+      const newOrder = {
+        ...data,
+        quantity: quantity,
+        SelectedColor: color,
+        totalPrice: totalPrice,
+      };
+      setCartItem(oldData => [newOrder, ...oldData]);
+    }
+  notify();
+  };
+
+  const handleColorClick = (color) => {
+    setActiveColor(color);
+  };
 
   return (
     <>
+    <ToastContainer/>
       <div className='CarDetailimg'>
-        <div className='container mx-auto grid grid-cols-1 md:grid-cols-3 md:gap-4 mt-12 items-center lg:items-start'>
-          <div className='flex flex-col col-end-3 col-start-1'>
-          <div className='flex flex-col gap-4 mx-9 md:mx-0'>
+        <div className='container mx-auto grid grid-cols-1 md:grid-cols-3 md:gap-4 mt-12 items-center lg:items-start mb-7'>
+          <div className='flex flex-col col-end-3 col-start-1 gap-9 mx-3'>
+            <div className='flex flex-col gap-4 mx-9 md:mx-0'>
               <div className='flex items-center gap-2'>
-              <p className='opacity-35'>Type</p>
-              <IOicons.IoIosArrowForward/>
-              <p className='opacity-35'>Car</p>
-              <IOicons.IoIosArrowForward/>
-              <p className='opacity-70'>Details</p>
+                <p className='opacity-35'>Type</p>
+                <IOicons.IoIosArrowForward />
+                <p className='opacity-35'>Car</p>
+                <IOicons.IoIosArrowForward />
+                <p className='opacity-70'>Details</p>
               </div>
-              <h1 className='main-text'>Porcha 911 GT3</h1>
-              <p className='EC text-3xl'>6000 cc</p>
+              <h1 className='main-text'>{Cartype}</h1>
+              <p className='EC text-3xl'>{EnginCapactiy}</p>
             </div>
             <div>
-              <img src={car} alt='' className='max-w-full'/>
+              <img src={src} alt='' className='max-w-full' />
             </div>
             <div className='flex gap-4 items-center e self-center md:self-start'>
-              <FAicons.FaArrowLeftLong className='arrow text-2xl'/>
-              <CarsSlider/>
-              <FAicons.FaArrowRightLong className='arrow text-2xl'/>
+              <FAicons.FaArrowLeftLong className='arrow text-2xl' />
+              <CarsSlider />
+              <FAicons.FaArrowRightLong className='arrow text-2xl' />
             </div>
           </div>
-          <div className='flex flex-col mt-3 gap-6 mx-9 md:mx-0'>
+          <div className='flex flex-col gap-6 mx-9 md:mx-0 h-full justify-around pb-10 pt-10'>
             <div>
               <h1 className='main-text'>Details</h1>
             </div>
@@ -59,42 +100,44 @@ export default function CarDetails({src,Cartype}) {
                 <h1 className='text-xl'>Rating And Review</h1>
                 <div className='flex gap-2 items-center'>
                   <div className='flex gap-1 '>
-                    <MDicon.MdStarOutline className='arrow text-3xl'/>
-                    <MDicon.MdStarOutline className='arrow text-3xl'/>
-                    <MDicon.MdStarOutline className='arrow text-3xl'/>
-                    <MDicon.MdStarOutline className='arrow text-3xl'/>
-                    <MDicon.MdStarOutline className='arrow text-3xl'/>
+                    <MDicon.MdStarOutline className='arrow text-3xl' />
+                    <MDicon.MdStarOutline className='arrow text-3xl' />
+                    <MDicon.MdStarOutline className='arrow text-3xl' />
+                    <MDicon.MdStarOutline className='arrow text-3xl' />
+                    <MDicon.MdStarOutline className='arrow text-3xl' />
                   </div>
                   <p className='opacity-70 text-2xl'>4.5</p>
                 </div>
               </div>
               <div className='flex flex-col gap-2'>
-               <h1 className='main-text'>Desciption</h1> 
-               <p className='opacity-50'>The culmimination of comfort,luxury,and powerrul living is embodied in the First-Ever BMWX7 -the biggest BMW ever built.</p>        
+                <h1 className='main-text'>Description</h1>
+                <p className='opacity-50'>The culmination of comfort, luxury, and powerful living is embodied in the First-Ever BMWX7 - the biggest BMW ever built.</p>
               </div>
               <div className='flex flex-col gap-2'>
                 <h1 className='main-text'>Colors</h1>
+
                 <div className='flex justify-around lg:justify-start lg:gap-8'>
-                  <div className='c1'></div>
-                  <div className='c2'></div>
-                  <div className='c3'></div>
+                  <div className={`c drop-shadow ${activeColor === 'Black' ? 'active-circle' : ''}`} onClick={() => { handleColorClick('Black') }} style={{ backgroundColor: `${color.Black}` }}></div>
+                  <div className={`c drop-shadow ${activeColor === 'White' ? 'active-circle' : ''}`} onClick={() => { handleColorClick('White') }} style={{ backgroundColor: `${color.White}` }} ></div>
+                  <div className={`c drop-shadow ${activeColor === 'LightBlue' ? 'active-circle' : ''}`} onClick={() => { handleColorClick('LightBlue') }} style={{ backgroundColor: `${color.LightBlue}` }}></div>
                 </div>
+
               </div>
               <div className='flex justify-center gap-10 items-center flex-wrap'>
-               <div className='flex gap-3 items-center'>
-                <p className='min' onClick={handelmin}>-</p>
-                <p>{carnum}</p>
-                <p className='max' onClick={handelmax}>+</p>
-               </div>
-               <div className='flex gap-3 items-center'>
-                <p className='text-2xl EC'>Price:</p>
-                <p className='text-2xl'>{price} $</p>
-               </div>
+                <div className='flex gap-3 items-center'>
+                  <button className='min' onClick={handleMinusQuantity}>-</button>
+                  <p>{quantity}</p>
+                  <button className='max' onClick={handleAddQuantity}>+</button>
+                </div>
+                <div className='flex gap-3 items-center'>
+                  <p className='text-2xl EC'>Price:</p>
+                  <p className='text-2xl'>{totalPrice} $</p>
+                </div>
               </div>
             </div>
             <div className='flex justify-around flex-wrap lg:flex-nowrap gap-6 xl:gap-20'>
-              <Link to='/Car-Store/Cart-Order' className='btn details-btn-sec flex justify-center items-center'>Add Too Cart</Link>
-              <Link to='/Order-Confirmation' className='btn details-btn-main flex justify-center items-center' >Buy Now</Link>
+              <Link className='btn details-btn-sec flex justify-center items-center' onClick={() => { DetailAddCart(id, activeColor) }}>Add To Cart</Link>
+              <Link to={`/Car-Store/Car-Detail/${Cartype}/Order-Confirmation`} className='btn details-btn-main flex justify-center items-center' >Buy Now</Link>
             </div>
           </div>
         </div>

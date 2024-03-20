@@ -221,8 +221,8 @@ top: 0;
 background: url('./images/Vector\ 3.png');
 background-repeat: no-repeat;
 background-size: contain;
+height: max-content;
 width: 100%;
-height: calc(100vh - 94px);
 z-index: -1;
 position: absolute;
 background-position: right;
@@ -242,23 +242,14 @@ background-position: right;
     width: fit-content;
 }
 
-.c1,.c2,.c3{
+.c{
 width: 49px;
 height: 49px;
 border-radius: 50%;
 cursor: pointer;
 }
-.c1{
-    background-color: white;
+.active-circle{
     border: 2px solid #976E72;
-}
-
-.c2{
-    background-color: black;
-}
-
-.c3{
-    background-color: #6799D5;
 }
 
 .min,.max{

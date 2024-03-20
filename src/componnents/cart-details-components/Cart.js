@@ -26,7 +26,7 @@ export default function Cart() {
         {
          cartItem.map((e,index)=>{
           return(
-            <Carscard src={e.src} cartype={e.cartype} price={e.totalPrice} id={e._id} Quan={e.quantity} key={index}/>
+            <Carscard src={e.src} cartype={e.cartype} price={e.totalPrice} id={e._id} Quan={e.quantity} color={e.SelectedColor} key={index}/>
           )   
         })
         }

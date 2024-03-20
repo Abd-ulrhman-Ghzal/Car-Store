@@ -21,7 +21,7 @@ export default function Landing() {
           <p className='landing-p'>The culmimination of comfort,luxury,and powerrul living is embodied <br/>in the First-Ever BMWX7 -the biggest BMW ever built.</p>
         </div>
         <div>
-        <Link to='/Car-Store/Car-Detail' className='rounded-3xl border p-3 main-btn' >EXPLORE</Link>
+        <Link to='/Car-Store/Car-Detail/Porcha 911 GT3' className='rounded-3xl border p-3 main-btn' >EXPLORE</Link>
         </div>
       </div>
       
@@ -33,8 +33,8 @@ export default function Landing() {
     </div>
     </div>
     <div className='container mx-auto'>
-      <div className='flex justify-between items-center px-10 py-5 mt-10  border drop-shadow rounded-3xl flex-wrap md:flex-nowrap gap-5 mb-5'>
-      <div className=' flex flex-col gap-4'>
+      <div className='grid sm:grid-cols-2 md:grid-cols-4 justify-center items-center gap-10 px-10 py-5 mt-10  border drop-shadow rounded-3xl mb-5'>
+      <div className=' flex flex-col gap-4 w-fit'>
         <h3>Name</h3>
         <div className='flex items-center gap-3'>
          <Faicons.FaCar/>
@@ -44,7 +44,7 @@ export default function Landing() {
          </div>
         </div>
       </div>
-      <div className=' flex flex-col gap-4'>
+      <div className=' flex flex-col gap-4 w-fit'>
         <h3>Price</h3>
         <div className='flex items-center gap-3'>
          <Tbicons.TbMoneybag/>
@@ -54,7 +54,7 @@ export default function Landing() {
          </div>
         </div>
       </div>
-      <div className=' flex flex-col gap-4'>
+      <div className=' flex flex-col gap-4 w-fit'>
         <h3>Engine Capicity</h3>
       <div className='flex items-center gap-3'>
          <AIicons.AiOutlineRise/>
@@ -67,7 +67,7 @@ export default function Landing() {
        </div>
       </div>
       </div>
-      <div className=' flex flex-col gap-4'>
+      <div className=' flex flex-col gap-4 w-fit'>
         <h3>Brand</h3>
         <div className='flex items-center gap-3'>
          <Tbicons.TbBrandFlutter/>
