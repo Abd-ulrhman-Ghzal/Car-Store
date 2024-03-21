@@ -37,16 +37,17 @@ export default function CarDetails({ id, src, Cartype, Price, EnginCapactiy, col
     }
   };
 
-  const totalPrice = Price * quantity;
+  
 
   const DetailAddCart = (id, color) => {
-    const existingOrderIndex = cartItem.findIndex(item => item._id === id && item.SelectedColor === color);
+    const existingOrder = cartItem.find(item => item._id === id && item.SelectedColor === color);
 
-    if (existingOrderIndex !== -1) {
+    if (existingOrder) {
       // If the same car with the same color exists, update quantity
-      const updatedCart = [...cartItem];
-      updatedCart[existingOrderIndex].quantity += quantity;
-      setCartItem(updatedCart);
+      setCartItem(oldData=>oldData.map(item=>{
+        return item._id === id && item.SelectedColor === color ? { ...item, quantity: item.quantity + quantity,totalPrice:item.price * (item.quantity + quantity)} : item
+       }))
+
     } else {
       // If the car with the same color doesn't exist, add a new order
       const data = Cars.find(car => car._id === id);
@@ -60,6 +61,10 @@ export default function CarDetails({ id, src, Cartype, Price, EnginCapactiy, col
     }
   notify();
   };
+
+
+  const totalPrice = Price * quantity;
+
 
   const handleColorClick = (color) => {
     setActiveColor(color);
