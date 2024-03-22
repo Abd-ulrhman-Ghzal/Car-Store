@@ -7,10 +7,13 @@ import { Link } from 'react-router-dom';
 import { CartContext } from '../../Context/Context';
 import { ToastContainer, toast } from 'react-toastify';
 
+
 export default function CarDetails({ id, src, Cartype, Price, EnginCapactiy, color }) {
   const [quantity, setQuantity] = useState(1);
   const { cartItem, setCartItem, Cars } = useContext(CartContext);
   const [activeColor, setActiveColor] = useState('Black');
+
+
 
 
   const notify = () => 
@@ -59,9 +62,9 @@ export default function CarDetails({ id, src, Cartype, Price, EnginCapactiy, col
       };
       setCartItem(oldData => [newOrder, ...oldData]);
     }
-  notify();
+    notify();
   };
-
+  
 
   const totalPrice = Price * quantity;
 
@@ -141,7 +144,7 @@ export default function CarDetails({ id, src, Cartype, Price, EnginCapactiy, col
               </div>
             </div>
             <div className='flex justify-around flex-wrap lg:flex-nowrap gap-6 xl:gap-20'>
-              <Link className='btn details-btn-sec flex justify-center items-center' onClick={() => { DetailAddCart(id, activeColor) }}>Add To Cart</Link>
+              <button className='btn details-btn-sec flex justify-center items-center w-full' onClick={() => { DetailAddCart(id, activeColor) }}>Add To Cart</button>
               <Link to={`/Car-Store/Car-Detail/${Cartype}/Order-Confirmation`} className='btn details-btn-main flex justify-center items-center' >Buy Now</Link>
             </div>
           </div>

@@ -6,10 +6,8 @@ import { CartContext } from '../../Context/Context'
 
 export default function Carscard({src,cartype,price,id,Quan,color}) {
 
-  const {cartItem, setCartItem}=useContext(CartContext)
-  const DetailRemoveCart = (id, color) => {
-    setCartItem(prevCart => prevCart.filter(item => !(item._id === id && item.SelectedColor === color)));
-  };
+  const {DetailRemoveCart}=useContext(CartContext)
+  
   
   return (
     <>

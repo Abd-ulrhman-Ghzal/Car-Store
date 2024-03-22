@@ -4,12 +4,14 @@ import Mainpage from './componnents/main-page-components/Mainpage';
 import { BrowserRouter ,Routes,Route } from 'react-router-dom';
 import Cart from './componnents/cart-details-components/Cart';
 import CarDetails from './componnents/car-details/CarDetails';
-import { useContext } from 'react';
-
+import { useContext, useEffect } from 'react';
 import { CartContext } from './Context/Context';
 
 function App() {
-  const {Cars}=useContext(CartContext)
+  const {Cars,cartItem}=useContext(CartContext)
+  useEffect(()=>{
+    localStorage.setItem('Cart-Items',JSON.stringify(cartItem))
+  },[cartItem])
   return (
     <>
     <BrowserRouter>

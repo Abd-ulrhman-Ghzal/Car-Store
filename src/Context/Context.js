@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 import audi from '../images/audi.png'
 import bmw from '../images/bmw.png'
 import volvo from '../images/stition.png'
@@ -9,6 +9,8 @@ import porcha from '../images/porcha2.png'
 export const CartContext=createContext()
 export default function Context({children}) {
  
+    const storedCartItems = localStorage.getItem('Cart-Items');
+
   const Cars=[
     {
       "_id":'1',
@@ -83,18 +85,24 @@ export default function Context({children}) {
     "color":{
       "Black":'#000000',
       "White":'#ffffff',
+      
       'LightBlue':'#6799D5'
     },
     'SelectedColor':'Black'
   }
 ]
-    const [cartItem,setCartItem]=useState([])
-    const removeCart = (id) => {
-     const removedCar= cartItem.filter(item=>item._id !== id)
-      setCartItem(removedCar);
-    };
+const [cartItem,setCartItem]=useState(JSON.parse(storedCartItems) || [])
+
+
+const DetailRemoveCart = (id, color) => {
+  setCartItem(prevCart => {
+    const updatedCart = prevCart.filter(item => !(item._id === id && item.SelectedColor === color));
+    localStorage.setItem('Cart-Items', JSON.stringify(updatedCart));
+    return updatedCart;
+  });
+};
   return (
-    <CartContext.Provider value={{cartItem,setCartItem,removeCart,Cars}}>
+    <CartContext.Provider value={{cartItem,setCartItem,DetailRemoveCart,Cars}}>
         {children}
     </CartContext.Provider>
   )

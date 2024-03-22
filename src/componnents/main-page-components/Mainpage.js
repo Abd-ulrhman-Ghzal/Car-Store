@@ -4,7 +4,10 @@ import Cartype from './Cartype'
 import Topcaticgory from './Topcaticgory'
 import Footer from './Footer'
 
+
+
 export default function Mainpage() {
+  
   return (
     <>
     <Landing/>

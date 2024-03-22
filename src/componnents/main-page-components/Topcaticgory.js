@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import seat from '../../images/seat.png'
 import whell from '../../images/wheel.png'
 import speedrpm from '../../images/speadRpm.png'
@@ -10,20 +10,30 @@ import { Link } from 'react-router-dom';
 
 export default function Topcaticgory() {
   const {cartItem,setCartItem,Cars}=useContext(CartContext)
-  
-const addcart=(id)=>{
-  const existItem=cartItem.find(item=>item._id === id)
-  if(existItem){
-    setCartItem(oldData=>oldData.map(item=>{
-     return item._id === id ? { ...item, quantity: item.quantity + 1,totalPrice:item.price * (item.quantity + 1),SelectedColor:'Black' } : item
-    }))
-  }else{
-    const data=Cars.find(car=>{
-      return car._id === id
-    })
-    setCartItem(oldData => [{ ...data, quantity: 1 ,totalPrice: data.price,SelectedColor:'Black'}, ...oldData]);
-  }
-}
+
+
+  const addcart = async (id) => {
+    const existItem = cartItem.find((item) => item._id === id);
+  if (existItem) {
+      const updatedCartItems = cartItem.map((item) =>
+        item._id === id
+          ? {
+              ...item,
+              quantity: item.quantity + 1,
+              totalPrice: item.price * (item.quantity + 1),
+              SelectedColor: 'Black',
+            }
+          : item
+      );
+       setCartItem(updatedCartItems);
+    } else {
+      const data = Cars.find((car) => car._id === id);
+      const updatedCartItems = [{ ...data, quantity: 1, totalPrice: data.price, SelectedColor: 'Black' }, ...cartItem];
+       setCartItem(updatedCartItems);
+    }
+    notify();
+    
+  };
 const notify = () => 
 {
   toast.success('Item Added To Cart', {
@@ -37,12 +47,6 @@ const notify = () =>
     theme: "light",
     });
 }
-
-const NotificationAndAddCart=(id)=>{
-  notify();
-  addcart(id)
-}
-
 
   return (
     <div className='container mx-auto mt-32 mb-20 '>
@@ -85,7 +89,7 @@ const NotificationAndAddCart=(id)=>{
                      <Ioicons.IoMdArrowDropright/>
                    </div>
                    <div>
-                   <button className='rounded-3xl border p-3 main-btn' onClick={()=>NotificationAndAddCart(el._id)}>Add To Cart</button>
+                   <button className='rounded-3xl border p-3 main-btn' onClick={()=>{addcart(el._id)}}>Add To Cart</button>
                    </div>
                   </div>
                </div>
