@@ -5,13 +5,14 @@ import * as Ioicons from "react-icons/io";
 import * as Tbicons from 'react-icons/tb'
 import * as AIicons from 'react-icons/ai'
 import { Link } from 'react-router-dom';
+import {motion, spring} from 'framer-motion'
 
 export default function Landing() {
 
   
   return (
     <>
-    <div className='backimg flex items-center md:h-svh-100'>
+    <div className='backimg flex items-center min-h-svh'>
     <div className='container mx-auto pt-8 pb-10 mb-8 '>
      <div className='flex items-center justify-between flex-col-reverse md:flex-row px-5 gap-10'>
       <div className='flex flex-col items-center md:items-start gap-12'>
@@ -25,9 +26,14 @@ export default function Landing() {
         </div>
       </div>
       
-      <div className=' relative'>
+      <motion.div className=' relative'
+      whileHover={{scale:1.050}}
+      initial={{opacity:0,x:100}}
+      animate={{opacity:1,x:0}}
+      transition={spring}
+      >
        <img src={landingCar} alt='' className='max-w-full '/>
-       </div>
+      </motion.div>
      </div>
      
     </div>

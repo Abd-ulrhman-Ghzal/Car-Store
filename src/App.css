@@ -50,8 +50,6 @@ width: 100%;
 top: 0;
 width: 60%;
 background-color: #eee;
-left: -100%;
-transition: all 0.5s;
 position: fixed;
 display: flex;
 flex-direction: column;
@@ -71,11 +69,6 @@ z-index: 10;
     background-color: #cdcdcd;
     transition: all 0.3s;
 }
-
-.active{
-left: 0%;
-}
-
 div .register:hover{
  color: white;
  background-color:#976E72 ;

@@ -5,6 +5,7 @@ import * as Faicons from "react-icons/fa";
 import * as Ioicons from "react-icons/io5";
 import { Link, useNavigate } from 'react-router-dom';
 import { CartContext } from '../Context/Context';
+import {motion} from 'framer-motion'
 
 export default function NavBar() {
 
@@ -12,18 +13,26 @@ export default function NavBar() {
    const {cartItem}=useContext(CartContext)
    const [showsidebar,Setshowsidebar]=useState(false)
    const navigation=useNavigate()
+   const variants = {
+    open: { opacity: 1, x: 0 },
+    closed: { opacity: 0, x: "-100%" },
+  }
 
   return (
     <div className='md:container mx-auto mt-8  pb-3 '>
 
-      <div className={showsidebar?' sidebar active md:hidden':' sidebar md:hidden '}>
+      <motion.div className='sidebar'
+      animate={showsidebar ? "open" : "closed"}
+      variants={variants}
+      transition={{ease:'easeInOut'}}
+      >
     
       <div className='flex items-center justify-between pt-5'>
         <div>
        <img src={logo} alt='' className='scale-50 max-w-full'/>
        </div>
        <div>
-       <Ioicons.IoCloseSharp className='size-8 mr-3 cursor-pointer max-w-full' onClick={()=>{Setshowsidebar(!showsidebar)}}/>
+       <Ioicons.IoCloseSharp className='size-8 mr-3 cursor-pointer max-w-full' onClick={()=>{Setshowsidebar(showsidebar=> !showsidebar)}}/>
       </div>
       </div>
       <div>
@@ -38,7 +47,7 @@ export default function NavBar() {
         </ul>
       </div>
     
-    </div>    
+    </motion.div>    
       
 
         <div className='flex md:justify-between justify-around items-center'>

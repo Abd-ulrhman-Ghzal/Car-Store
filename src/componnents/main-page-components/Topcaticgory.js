@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import seat from '../../images/seat.png'
 import whell from '../../images/wheel.png'
 import speedrpm from '../../images/speadRpm.png'
@@ -93,7 +93,6 @@ const notify = () =>
                    </div>
                   </div>
                </div>
-                
             }
             )
           }

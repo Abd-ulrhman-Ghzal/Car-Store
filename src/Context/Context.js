@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from 'react'
+import React, { createContext, useState } from 'react'
 import audi from '../images/audi.png'
 import bmw from '../images/bmw.png'
 import volvo from '../images/stition.png'

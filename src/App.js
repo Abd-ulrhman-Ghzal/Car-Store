@@ -9,9 +9,11 @@ import { CartContext } from './Context/Context';
 
 function App() {
   const {Cars,cartItem}=useContext(CartContext)
+
   useEffect(()=>{
     localStorage.setItem('Cart-Items',JSON.stringify(cartItem))
   },[cartItem])
+  
   return (
     <>
     <BrowserRouter>
