@@ -14,6 +14,7 @@ export default function CarDetails({ id, src, Cartype, Price, EnginCapactiy, col
   const { cartItem, setCartItem, Cars } = useContext(CartContext);
   const [activeColor, setActiveColor] = useState('Black');
   const [emblaRef] = useEmblaCarousel()
+  const [clickedImg,setClickedImg]=useState(src)
 
 
 

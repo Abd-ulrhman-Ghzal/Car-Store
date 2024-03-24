@@ -22,9 +22,10 @@ export default function NavBar() {
     <div className='md:container mx-auto mt-8  pb-3 '>
 
       <motion.div className='sidebar'
+      initial={"closed"}
       animate={showsidebar ? "open" : "closed"}
       variants={variants}
-      transition={{ease:'easeInOut'}}
+      transition={{ease:'backInOut'}}
       >
     
       <div className='flex items-center justify-between pt-5'>

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useRef } from 'react'
 import seat from '../../images/seat.png'
 import whell from '../../images/wheel.png'
 import speedrpm from '../../images/speadRpm.png'
@@ -7,10 +7,12 @@ import { CartContext } from '../../Context/Context';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-router-dom';
+import {motion, useInView} from 'framer-motion'
 
 export default function Topcaticgory() {
   const {cartItem,setCartItem,Cars}=useContext(CartContext)
-
+  const ref = useRef(null)
+  const isInView = useInView(ref , {once:true})
 
   const addcart = async (id) => {
     const existItem = cartItem.find((item) => item._id === id);
@@ -48,8 +50,15 @@ const notify = () =>
     });
 }
 
+
+
   return (
-    <div className='container mx-auto mt-32 mb-20 '>
+    <motion.div ref={ref} className='container mx-auto mt-32 mb-20 ' 
+    style={{
+      transform: isInView ? "none" : "translateX(-200px)",
+      opacity: isInView ? 1 : 0,
+      transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
+    }}>
       <ToastContainer/>
       <div className='flex flex-col gap-16'>
         <h1 className='text-center main-text'>Top Categorise</h1>
@@ -57,7 +66,11 @@ const notify = () =>
           {
             Cars.map(el=>{
              return el._id !== '1'  && 
-                <div className='flex flex-col gap-7 items-center Car-card' key={el._id}>
+                <div  
+                className='flex flex-col gap-7 items-center Car-card' 
+                key={el._id}
+                
+                >
                   <div className='rounded-full'>
                     <img src={el.src} alt='' className='max-w-full'/>
                   </div>
@@ -98,6 +111,6 @@ const notify = () =>
           }
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
