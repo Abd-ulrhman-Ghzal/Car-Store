@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Car-Store/static/css/main.f9fd2f5a.css",
-    "main.js": "/Car-Store/static/js/main.c1def7c9.js",
+    "main.css": "/Car-Store/static/css/main.50bfeee9.css",
+    "main.js": "/Car-Store/static/js/main.8f03bfda.js",
     "static/media/bmw.png": "/Car-Store/static/media/bmw.a8d005ba671f1fc10b68.png",
     "static/media/audi.png": "/Car-Store/static/media/audi.27e16600cbf4356f97d2.png",
     "static/media/porcha2.png": "/Car-Store/static/media/porcha2.494e00d579abfd58a8ab.png",
@@ -10,19 +10,36 @@
     "static/media/bmw 2.png": "/Car-Store/static/media/bmw 2.1a09f0240a3e08a956b3.png",
     "static/media/audi 2.png": "/Car-Store/static/media/audi 2.3bfe290d01a22dac6a47.png",
     "static/media/ferarri.png": "/Car-Store/static/media/ferarri.d5eed953864a4efad9ad.png",
+    "static/media/volvo-S1.jpg": "/Car-Store/static/media/volvo-S1.67ee153bb4175913d95b.jpg",
+    "static/media/Audi-S3.png": "/Car-Store/static/media/Audi-S3.b64554a183d6470423a9.png",
+    "static/media/volvo-S3.jpeg": "/Car-Store/static/media/volvo-S3.740daecd40fa830cc168.jpeg",
+    "static/media/Audi-S2.png": "/Car-Store/static/media/Audi-S2.91e6a7b06283df5c721a.png",
+    "static/media/Audi-S1.jpg": "/Car-Store/static/media/Audi-S1.b0e6420bbc2aac7feacc.jpg",
     "static/media/bmw 3.png": "/Car-Store/static/media/bmw 3.bc220673889e043a801a.png",
     "static/media/Rectangle 14.png": "/Car-Store/static/media/Rectangle 14.8bcec3fdc37aad5ef2df.png",
-    "static/media/Rectangle 47.png": "/Car-Store/static/media/Rectangle 47.99f3019f8e63cb2eeba0.png",
+    "static/media/bmw-S1.jpg": "/Car-Store/static/media/bmw-S1.10967c42d0a2261a6cdf.jpg",
+    "static/media/BmwM5-S4.jpg": "/Car-Store/static/media/BmwM5-S4.1901058b1aaef52013f6.jpg",
+    "static/media/BmwM5-S2.jpg": "/Car-Store/static/media/BmwM5-S2.1ee69f7d33142612a9e0.jpg",
+    "static/media/bmw-S2.jpg": "/Car-Store/static/media/bmw-S2.6e74c07393401ae00de2.jpg",
+    "static/media/Audi-S4.jpg": "/Car-Store/static/media/Audi-S4.fb19a4fc905e9a348af4.jpg",
+    "static/media/porch-S3.jpg": "/Car-Store/static/media/porch-S3.6159a4d0effd4c3d6102.jpg",
+    "static/media/bmw-S3.jpg": "/Car-Store/static/media/bmw-S3.6f52e4c5aa6dc8187b3f.jpg",
+    "static/media/bmw-S4.jpg": "/Car-Store/static/media/bmw-S4.0bc9eb4d3946f391fa3f.jpg",
+    "static/media/porch-S4.jpg": "/Car-Store/static/media/porch-S4.08f21cd5e3f482e0ea38.jpg",
+    "static/media/volvo-S4.jpeg": "/Car-Store/static/media/volvo-S4.9cb92d3791992cbf7104.jpeg",
+    "static/media/BmwM5-S3.jpg": "/Car-Store/static/media/BmwM5-S3.c2da5a487b8e0aad1017.jpg",
+    "static/media/BmwM5-S1.jpg": "/Car-Store/static/media/BmwM5-S1.b4a1c653deb61da8c2ad.jpg",
+    "static/media/porch-S1.jpg": "/Car-Store/static/media/porch-S1.6f513d2cd4d492079cb1.jpg",
+    "static/media/porch-S2.jpg": "/Car-Store/static/media/porch-S2.27c331e6557d0637c388.jpg",
     "static/media/Vector 3.png": "/Car-Store/static/media/Vector 3.01a35327122bfeaa4bf9.png",
-    "static/media/Rectangle 46.png": "/Car-Store/static/media/Rectangle 46.282f224bd7787328b791.png",
-    "static/media/Rectangle 48.png": "/Car-Store/static/media/Rectangle 48.19e07f2c7a6df52cf03d.png",
+    "static/media/volvo-S2.jpg": "/Car-Store/static/media/volvo-S2.891c13fea056ba8b9e36.jpg",
     "static/media/Vector 2.png": "/Car-Store/static/media/Vector 2.4222c8448d6d4d310f0b.png",
     "index.html": "/Car-Store/index.html",
-    "main.f9fd2f5a.css.map": "/Car-Store/static/css/main.f9fd2f5a.css.map",
-    "main.c1def7c9.js.map": "/Car-Store/static/js/main.c1def7c9.js.map"
+    "main.50bfeee9.css.map": "/Car-Store/static/css/main.50bfeee9.css.map",
+    "main.8f03bfda.js.map": "/Car-Store/static/js/main.8f03bfda.js.map"
   },
   "entrypoints": [
-    "static/css/main.f9fd2f5a.css",
-    "static/js/main.c1def7c9.js"
+    "static/css/main.50bfeee9.css",
+    "static/js/main.8f03bfda.js"
   ]
 }
