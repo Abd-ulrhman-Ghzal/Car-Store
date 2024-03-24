@@ -9,6 +9,7 @@ import { CartContext } from './Context/Context';
 
 function App() {
   const {Cars,cartItem}=useContext(CartContext)
+  
 
   useEffect(()=>{
     localStorage.setItem('Cart-Items',JSON.stringify(cartItem))
@@ -26,7 +27,7 @@ function App() {
         <Route path='/Car-Store/Cart-Order' element={<Cart/>}/>
         
         {Cars.map((e,index)=>{
-          return <Route key={index} path={`/Car-Store/Car-Detail/${e.cartype}`} element={<CarDetails src={e.src} Cartype={e.cartype} Price={e.price} EnginCapactiy={e.EnginCapactiy} color={e.color} id={e._id}/>}/>
+          return <Route key={index} path={`/Car-Store/Car-Detail/${e.cartype}`} element={<CarDetails src={e.src} Cartype={e.cartype} Price={e.price} EnginCapactiy={e.EnginCapactiy} color={e.color} id={e._id} ImageSlider={e.ImageSlider} />}/>
         })}
         
        </Routes>

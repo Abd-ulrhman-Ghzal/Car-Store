@@ -6,13 +6,14 @@ import * as MDicon from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../Context/Context';
 import { ToastContainer, toast } from 'react-toastify';
+import useEmblaCarousel from 'embla-carousel-react'
 
 
-export default function CarDetails({ id, src, Cartype, Price, EnginCapactiy, color }) {
+export default function CarDetails({ id, src, Cartype, Price, EnginCapactiy, color ,ImageSlider}) {
   const [quantity, setQuantity] = useState(1);
   const { cartItem, setCartItem, Cars } = useContext(CartContext);
   const [activeColor, setActiveColor] = useState('Black');
-
+  const [emblaRef] = useEmblaCarousel()
 
 
 
@@ -90,14 +91,34 @@ export default function CarDetails({ id, src, Cartype, Price, EnginCapactiy, col
               <h1 className='main-text'>{Cartype}</h1>
               <p className='EC text-3xl'>{EnginCapactiy}</p>
             </div>
-            <div>
+            <div className='flex justify-center items-center'>
               <img src={src} alt='' className='max-w-full' />
             </div>
-            <div className='flex gap-4 items-center e self-center md:self-start'>
-              <FAicons.FaArrowLeftLong className='arrow text-2xl' />
-              <CarsSlider />
-              <FAicons.FaArrowRightLong className='arrow text-2xl' />
+
+            <div className=' gap-5 items-center content-center self-center md:self-start my-5 hidden lg:flex'>
+              
+              <div className='flex justify-center items-center'>
+              <FAicons.FaArrowLeftLong className='arrow text-2xl col-start-1 col-end-2' />
+              </div>
+              <div className='flex gap-10 col-start-2 col-end-6'>
+              <CarsSlider images={ImageSlider} />
+              </div>
+              <div className='flex justify-center items-center'>
+              <FAicons.FaArrowRightLong className='arrow text-2xl col-start-6 col-end-7' />
+              </div>
             </div>
+
+            <div className="embla lg:hidden  flex rounded-xl mt-7 cursor-grab" ref={emblaRef}>
+               <div className="embla__container gap-6">
+               {ImageSlider.map((e,index)=>{
+                return(
+                    <img src={e} key={index} alt='' className='max-w-full aspect-video object-cover rounded-xl embla__slide'/>
+
+                )
+               })}
+               </div>
+            </div>
+
           </div>
           <div className='flex flex-col gap-6 mx-9 md:mx-0 h-full justify-around pb-10 pt-10'>
             <div>

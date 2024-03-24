@@ -157,9 +157,19 @@ transition: all 0.3s;
 
 .img-slider img{
     cursor: pointer;
-position: relative;
+    position: relative;
 }
 
+.embla {
+    overflow: hidden;
+  }
+  .embla__container {
+    display: flex;
+  }
+  .embla__slide {
+    flex: 0 0 60%;
+    min-width: 0;
+  }
 
 
 @media (max-width:767px){

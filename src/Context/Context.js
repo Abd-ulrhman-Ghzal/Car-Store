@@ -1,13 +1,48 @@
 import React, { createContext, useState } from 'react'
-import audi from '../images/audi.png'
-import bmw from '../images/bmw.png'
-import volvo from '../images/stition.png'
-import bmw2 from '../images/bmw 2.png'
 import porcha from '../images/porcha2.png'
 
+import porchaS1 from '../images/image Slide pic/porcha/porch-S1.jpg'
+import porchaS2 from '../images/image Slide pic/porcha/porch-S2.jpg'
+import porchaS3 from '../images/image Slide pic/porcha/porch-S3.jpg'
+import porchaS4 from '../images/image Slide pic/porcha/porch-S4.jpg'
+
+
+
+import audi from '../images/audi.png'
+
+import audiS1 from '../images/image Slide pic/Audi/Audi-S1.jpg'
+import audiS2 from '../images/image Slide pic/Audi/Audi-S2.png'
+import audiS3 from '../images/image Slide pic/Audi/Audi-S3.png'
+import audiS4 from '../images/image Slide pic/Audi/Audi-S4.jpg'
+
+import bmw from '../images/bmw.png'
+
+import bmwS1 from '../images/image Slide pic/bmw m5/BmwM5-S1.jpg'
+import bmwS2 from '../images/image Slide pic/bmw m5/BmwM5-S2.jpg'
+import bmwS3 from '../images/image Slide pic/bmw m5/BmwM5-S3.jpg'
+import bmwS4 from '../images/image Slide pic/bmw m5/BmwM5-S4.jpg'
+
+import volvo from '../images/stition.png'
+
+import volvoS1 from '../images/image Slide pic/Volvo/volvo-S1.jpg'
+import volvoS2 from '../images/image Slide pic/Volvo/volvo-S2.jpg'
+import volvoS3 from '../images/image Slide pic/Volvo/volvo-S3.jpeg'
+import volvoS4 from '../images/image Slide pic/Volvo/volvo-S4.jpeg'
+
+import bmw2 from '../images/bmw 2.png'
+
+import BmwS1 from '../images/image Slide pic/bmw/bmw-S1.jpg'
+import BmwS2 from '../images/image Slide pic/bmw/bmw-S2.jpg'
+import BmwS3 from '../images/image Slide pic/bmw/bmw-S3.jpg'
+import BmwS4 from '../images/image Slide pic/bmw/bmw-S4.jpg'
 
 export const CartContext=createContext()
 export default function Context({children}) {
+  const porchaSlider=[porchaS1,porchaS2,porchaS3,porchaS4]
+  const audiSlider=[audiS1,audiS2,audiS3,audiS4]
+  const bmwM5slider=[bmwS1,bmwS2,bmwS3,bmwS4]
+  const volvoSlider=[volvoS1,volvoS2,volvoS3,volvoS4]
+  const BmwSlider=[BmwS1,BmwS2,BmwS3,BmwS4]
  
     const storedCartItems = localStorage.getItem('Cart-Items');
 
@@ -26,7 +61,8 @@ export default function Context({children}) {
       "White":'#ffffff',
       'LightBlue':'#6799D5'
     },
-    'SelectedColor':'Black'
+    'SelectedColor':'Black',
+    'ImageSlider':porchaSlider
     },
     {
     "_id":'2',
@@ -42,7 +78,8 @@ export default function Context({children}) {
       "White":'#ffffff',
       'LightBlue':'#6799D5'
     },
-    'SelectedColor':'Black'
+    'SelectedColor':'Black',
+    'ImageSlider':audiSlider
   },{
     "_id":'3',
     "src":bmw,
@@ -57,7 +94,8 @@ export default function Context({children}) {
       "White":'#ffffff',
       'LightBlue':'#6799D5'
     },
-    'SelectedColor':'Black'
+    'SelectedColor':'Black',
+    'ImageSlider':bmwM5slider
   },{
     "_id":'4',
     "src":volvo,
@@ -72,7 +110,8 @@ export default function Context({children}) {
       "White":'#ffffff',
       'LightBlue':'#6799D5'
     },
-    'SelectedColor':'Black'
+    'SelectedColor':'Black',
+    'ImageSlider':volvoSlider
   },{
     "_id":'5',
     "src":bmw2,
@@ -85,10 +124,10 @@ export default function Context({children}) {
     "color":{
       "Black":'#000000',
       "White":'#ffffff',
-      
       'LightBlue':'#6799D5'
     },
-    'SelectedColor':'Black'
+    'SelectedColor':'Black',
+    'ImageSlider':BmwSlider
   }
 ]
 const [cartItem,setCartItem]=useState(JSON.parse(storedCartItems) || [])

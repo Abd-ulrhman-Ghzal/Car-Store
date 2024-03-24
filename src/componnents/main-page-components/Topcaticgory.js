@@ -51,14 +51,14 @@ const notify = () =>
   return (
     <div className='container mx-auto mt-32 mb-20 '>
       <ToastContainer/>
-      <div className='flex flex-col'>
+      <div className='flex flex-col gap-16'>
         <h1 className='text-center main-text'>Top Categorise</h1>
         <div className='flex mt-10 xl:justify-around items-center flex-wrap justify-center gap-16'>
           {
             Cars.map(el=>{
              return el._id !== '1'  && 
                 <div className='flex flex-col gap-7 items-center Car-card' key={el._id}>
-                  <div>
+                  <div className='rounded-full'>
                     <img src={el.src} alt='' className='max-w-full'/>
                   </div>
                   <h2 className='text-center main-text'>{el.cartype}</h2>
