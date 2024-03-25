@@ -1,9 +1,7 @@
-import React from 'react'
 import {motion, spring} from 'framer-motion'
 
 export default function CarsSlider({images}) {
-
-  
+ 
   return(
     <>
       {images.map((e,index)=>{
@@ -13,7 +11,7 @@ export default function CarsSlider({images}) {
           whileHover={{scale:1.080}}
           transition={spring}
           >
-            <img  src={e} alt='' className='max-w-full object-cover aspect-video rounded-2xl cursor-pointer'/>
+            <img  src={e} alt='' className='max-w-full rounded-2xl cursor-pointer'/>
           </motion.div>
         )
       })}

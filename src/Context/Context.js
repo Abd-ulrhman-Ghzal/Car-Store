@@ -43,9 +43,6 @@ export default function Context({children}) {
   const bmwM5slider=[bmwS1,bmwS2,bmwS3,bmwS4]
   const volvoSlider=[volvoS1,volvoS2,volvoS3,volvoS4]
   const BmwSlider=[BmwS1,BmwS2,BmwS3,BmwS4]
- 
-    const storedCartItems = localStorage.getItem('Cart-Items');
-
   const Cars=[
     {
       "_id":'1',
@@ -67,6 +64,7 @@ export default function Context({children}) {
     {
     "_id":'2',
     "src":audi,
+
     "cartype":'AUDI',
     "price":599,
     "Seator":2,
@@ -115,6 +113,7 @@ export default function Context({children}) {
   },{
     "_id":'5',
     "src":bmw2,
+
     "cartype":'BMW',
     "price":999,
     "Seator":4,
@@ -130,6 +129,10 @@ export default function Context({children}) {
     'ImageSlider':BmwSlider
   }
 ]
+  
+
+    const storedCartItems = localStorage.getItem('Cart-Items');
+
 const [cartItem,setCartItem]=useState(JSON.parse(storedCartItems) || [])
 
 

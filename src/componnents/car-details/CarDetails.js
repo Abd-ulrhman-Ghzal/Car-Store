@@ -11,11 +11,9 @@ import useEmblaCarousel from 'embla-carousel-react'
 
 export default function CarDetails({ id, src, Cartype, Price, EnginCapactiy, color ,ImageSlider}) {
   const [quantity, setQuantity] = useState(1);
-  const { cartItem, setCartItem, Cars } = useContext(CartContext);
+  const { cartItem, setCartItem, Cars} = useContext(CartContext);
   const [activeColor, setActiveColor] = useState('Black');
   const [emblaRef] = useEmblaCarousel()
-  const [clickedImg,setClickedImg]=useState(src)
-
 
 
   const notify = () => 
@@ -92,8 +90,9 @@ export default function CarDetails({ id, src, Cartype, Price, EnginCapactiy, col
               <h1 className='main-text'>{Cartype}</h1>
               <p className='EC text-3xl'>{EnginCapactiy}</p>
             </div>
-            <div className='flex justify-center items-center'>
-              <img src={src} alt='' className='max-w-full' />
+            <div className='flex justify-center items-center '>
+              
+              <img src={src} alt='' className='max-w-full rounded-3xl' />
             </div>
 
             <div className=' gap-5 items-center content-center self-center md:self-start my-5 hidden lg:flex'>
@@ -101,7 +100,7 @@ export default function CarDetails({ id, src, Cartype, Price, EnginCapactiy, col
               <div className='flex justify-center items-center'>
               <FAicons.FaArrowLeftLong className='arrow text-2xl col-start-1 col-end-2' />
               </div>
-              <div className='flex gap-10 col-start-2 col-end-6'>
+              <div className='flex gap-5 col-start-2 col-end-6'>
               <CarsSlider images={ImageSlider} />
               </div>
               <div className='flex justify-center items-center'>
@@ -110,11 +109,10 @@ export default function CarDetails({ id, src, Cartype, Price, EnginCapactiy, col
             </div>
 
             <div className="embla lg:hidden  flex rounded-xl mt-7 cursor-grab" ref={emblaRef}>
-               <div className="embla__container gap-6">
+               <div className="embla__container gap-3">
                {ImageSlider.map((e,index)=>{
                 return(
-                    <img src={e} key={index} alt='' className='max-w-full aspect-video object-cover rounded-xl embla__slide'/>
-
+                    <img src={e} key={index} alt='' className='max-w-full aspect-video object-cover rounded-xl embla__slide' />
                 )
                })}
                </div>
