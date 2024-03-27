@@ -31,6 +31,11 @@ import pic29 from '../images/cars-thumbnail/29.png'
 import pic30 from '../images/cars-thumbnail/30.png'
 
 
+import S1 from '../images/Rectangle 46.png'
+import S2 from '../images/Rectangle 47.png'
+import S3 from '../images/Rectangle 48.png'
+import S4 from '../images/Rectangle 49.png'
+
 export const CartContext=createContext()
 export default function Context({children}) {
  
@@ -152,6 +157,8 @@ export default function Context({children}) {
   ,pic11,pic12,pic13,pic14,pic15,pic16,pic17,pic18,pic19,pic20,
   pic21,pic22,pic23,pic24,pic25,pic26,pic27,pic28,pic29,pic30]
 
+  const ImageSlider=[S1,S2,S3,S4]
+
   useEffect(()=>{
     const fetchData=async(query='')=>{
       const apiUrl = "https://freetestapi.com/api/v1/cars";
@@ -165,7 +172,8 @@ export default function Context({children}) {
         const Cars = await response.json();
         const carsWithImages = Cars.map((car, index) => ({
           ...car,
-          image: images[index % images.length] // Modulo operation to cycle through images if cars exceed images length
+          image: images[index % images.length],
+          ImageSlider:ImageSlider // Modulo operation to cycle through images if cars exceed images length
       }));
 
       setCars(carsWithImages);

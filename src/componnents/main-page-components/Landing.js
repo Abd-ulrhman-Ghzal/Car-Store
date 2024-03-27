@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import landingCar from '../../images/porcha.png'
+import landingCar from '../../images/cars-thumbnail/3.png'
 import * as Faicons from "react-icons/fa";
 import * as Ioicons from "react-icons/io";
 import * as Tbicons from 'react-icons/tb'
@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import {motion, spring} from 'framer-motion'
 import Select from 'react-select'
 import { CartContext } from '../../Context/Context';
+
 
 export default function Landing() {
   
@@ -26,7 +27,7 @@ export default function Landing() {
           <p className='landing-p'>The culmimination of comfort,luxury,and powerrul living is embodied <br/>in the First-Ever BMWX7 -the biggest BMW ever built.</p>
         </div>
         <div>
-        <Link to='/Car-Store/Car-Detail/Porsche 718 Cayman GT4 RS' className='rounded-3xl border p-3 main-btn' >EXPLORE</Link>
+        <Link to='/Car-Store/Car-Detail/Ford Mustang' className='rounded-3xl border p-3 main-btn' >EXPLORE</Link>
         </div>
       </div>
       

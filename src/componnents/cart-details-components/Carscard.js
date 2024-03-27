@@ -4,7 +4,7 @@ import { CartContext } from '../../Context/Context'
 
 
 
-export default function Carscard({src,cartype,price,id,Quan,color}) {
+export default function Carscard({src,cartype,price,id,Quan,color,EC}) {
 
   const {DetailRemoveCart}=useContext(CartContext)
   
@@ -20,7 +20,7 @@ export default function Carscard({src,cartype,price,id,Quan,color}) {
         <div className='flex flex-col gap-7 col-start-1 col-end-4  md:col-start-2'>
           <h1 className='main-text EC'>{cartype}</h1>
           <p className='flex flex-wrap'>Code: #{Math.floor(Math.random() * 100000) + 1}</p>
-          <p>Engine Capactiy: {Math.floor(Math.random() * 6000) + 1}CC</p>
+          <p>Engine Capactiy: {EC} CC</p>
         </div>
       </div>
     </div>
