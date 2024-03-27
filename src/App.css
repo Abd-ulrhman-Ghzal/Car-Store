@@ -100,24 +100,27 @@ div .register:hover{
 .main-btn{
 color: white;
 background-color: #976E72;
+transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+transition-duration: 300ms;
+
 }
 
 .sec-btn{
     color: black;
     border: 1px solid black;
     border-radius: 9999px;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
 }
 .sec-btn:hover{
     color: white;
-    background-color: #976E72;
-    transition: all 0.3s;
+    background-color: #976e72;
     border: none;
 }
 
 .main-btn:hover{
 color: #976E72;
 background-color: white;
-transition: all 0.3s;
 }
 
 .main-text{
@@ -170,6 +173,7 @@ transition: all 0.3s;
     flex: 0 0 60%;
     min-width: 0;
   }
+  
 
 
 @media (max-width:767px){
@@ -177,6 +181,10 @@ transition: all 0.3s;
         width: 80%;
     }
 }
+.Car-card{
+    min-height: 750px;
+}
+
 
 .footer-p{
     color: #808080;

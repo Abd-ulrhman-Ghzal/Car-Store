@@ -9,7 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import useEmblaCarousel from 'embla-carousel-react'
 
 
-export default function CarDetails({ id, src, Cartype, Price, EnginCapactiy, color ,ImageSlider}) {
+export default function CarDetails({ id, src, Cartype, Price, EnginCapactiy,ImageSlider }) {
   const [quantity, setQuantity] = useState(1);
   const { cartItem, setCartItem, Cars} = useContext(CartContext);
   const [activeColor, setActiveColor] = useState('Black');
@@ -43,17 +43,19 @@ export default function CarDetails({ id, src, Cartype, Price, EnginCapactiy, col
   
 
   const DetailAddCart = (id, color) => {
-    const existingOrder = cartItem.find(item => item._id === id && item.SelectedColor === color);
+    
+    const existingOrder = cartItem.find(item => item.id === id && item.SelectedColor===color);
+
 
     if (existingOrder) {
       // If the same car with the same color exists, update quantity
       setCartItem(oldData=>oldData.map(item=>{
-        return item._id === id && item.SelectedColor === color ? { ...item, quantity: item.quantity + quantity,totalPrice:item.price * (item.quantity + quantity)} : item
+        return item.id === id && item.SelectedColor===color ? { ...item, quantity: item.quantity + quantity,totalPrice:item.price * (item.quantity + quantity)} : item
        }))
 
     } else {
       // If the car with the same color doesn't exist, add a new order
-      const data = Cars.find(car => car._id === id);
+      const data = Cars.find(car => car.id === id);
       const newOrder = {
         ...data,
         quantity: quantity,
@@ -145,9 +147,9 @@ export default function CarDetails({ id, src, Cartype, Price, EnginCapactiy, col
                 <h1 className='main-text'>Colors</h1>
 
                 <div className='flex justify-around lg:justify-start lg:gap-8'>
-                  <div className={`c drop-shadow ${activeColor === 'Black' ? 'active-circle' : ''}`} onClick={() => { handleColorClick('Black') }} style={{ backgroundColor: `${color.Black}` }}></div>
-                  <div className={`c drop-shadow ${activeColor === 'White' ? 'active-circle' : ''}`} onClick={() => { handleColorClick('White') }} style={{ backgroundColor: `${color.White}` }} ></div>
-                  <div className={`c drop-shadow ${activeColor === 'LightBlue' ? 'active-circle' : ''}`} onClick={() => { handleColorClick('LightBlue') }} style={{ backgroundColor: `${color.LightBlue}` }}></div>
+                  <div className={`c drop-shadow ${activeColor === 'Black' ? 'active-circle' : ''}`} onClick={() => { handleColorClick('Black') }} style={{ backgroundColor: 'black' }}></div>
+                  <div className={`c drop-shadow ${activeColor === 'White' ? 'active-circle' : ''}`} onClick={() => { handleColorClick('White') }} style={{ backgroundColor: 'white' }} ></div>
+                  <div className={`c drop-shadow ${activeColor === 'LightBlue' ? 'active-circle' : ''}`} onClick={() => { handleColorClick('LightBlue') }} style={{ backgroundColor: 'lightblue' }}></div>
                 </div>
 
               </div>

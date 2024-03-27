@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import landingCar from '../../images/porcha.png'
 import * as Faicons from "react-icons/fa";
 import * as Ioicons from "react-icons/io";
@@ -6,10 +6,14 @@ import * as Tbicons from 'react-icons/tb'
 import * as AIicons from 'react-icons/ai'
 import { Link } from 'react-router-dom';
 import {motion, spring} from 'framer-motion'
+import Select from 'react-select'
+import { CartContext } from '../../Context/Context';
 
 export default function Landing() {
-
   
+  const {selectedCarName,setSelectedCarName,CarsNameOptions,CarsBrandOptions,setSelectedCarBrand,selectedCarBrand}=useContext(CartContext)
+  
+
   return (
     <>
     <div className='backimg flex items-center min-h-svh'>
@@ -22,7 +26,7 @@ export default function Landing() {
           <p className='landing-p'>The culmimination of comfort,luxury,and powerrul living is embodied <br/>in the First-Ever BMWX7 -the biggest BMW ever built.</p>
         </div>
         <div>
-        <Link to='/Car-Store/Car-Detail/Porcha 911 GT3' className='rounded-3xl border p-3 main-btn' >EXPLORE</Link>
+        <Link to='/Car-Store/Car-Detail/Porsche 718 Cayman GT4 RS' className='rounded-3xl border p-3 main-btn' >EXPLORE</Link>
         </div>
       </div>
       
@@ -39,14 +43,19 @@ export default function Landing() {
     </div>
     </div>
     <div className='container mx-auto'>
-      <div className='grid sm:grid-cols-2 md:grid-cols-4 justify-center items-center gap-10 px-10 py-5 mt-10  border drop-shadow rounded-3xl mb-5'>
+      <div className='grid sm:grid-cols-2 lg:grid-cols-4 justify-center items-center gap-10 px-10 py-5 mt-10  border drop-shadow rounded-3xl mb-5'>
       <div className=' flex flex-col gap-4 w-fit'>
         <h3>Name</h3>
         <div className='flex items-center gap-3'>
          <Faicons.FaCar/>
          <div className='flex items-center gap-1'>
-         <p>Choose name</p>
-          <Ioicons.IoMdArrowDropdown/>  
+         <Select
+         isClearable
+         placeholder='Select Car Name'
+         options={CarsNameOptions}
+         onChange={(Select)=>setSelectedCarName(Select)}
+         value={selectedCarName}
+         />
          </div>
         </div>
       </div>
@@ -55,8 +64,9 @@ export default function Landing() {
         <div className='flex items-center gap-3'>
          <Tbicons.TbMoneybag/>
          <div className='flex items-center gap-1'>
-         <p>Choose price</p>
-          <Ioicons.IoMdArrowDropdown/>
+         
+         
+
          </div>
         </div>
       </div>
@@ -78,8 +88,13 @@ export default function Landing() {
         <div className='flex items-center gap-3'>
          <Tbicons.TbBrandFlutter/>
          <div className='flex items-center gap-1'>
-         <p>Choose brand</p>
-          <Ioicons.IoMdArrowDropdown/>
+         <Select
+         isClearable
+         placeholder='Select Car Brand'
+         options={CarsBrandOptions}
+         onChange={(Select)=>setSelectedCarBrand(Select)}
+         value={selectedCarBrand}
+         />
          </div>
         </div>
       </div>

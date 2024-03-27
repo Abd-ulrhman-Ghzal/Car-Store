@@ -26,7 +26,7 @@ export default function Cartype() {
 
 
   return (
-    <div className='container mx-auto mt-8 mb-8 Car-card'>
+    <div className='container mx-auto mt-32 pt-16 mb-8 Car-card'>
      <div className='flex flex-col items-center gap-16 md:hidden mb-32'>
       <h1 className='text-center main-text'>Find by Car Type</h1>
       <div className=' flex flex-wrap items-center gap-7 xl:gap-28 2xl:gap-7 justify-center relative img-slider '>
