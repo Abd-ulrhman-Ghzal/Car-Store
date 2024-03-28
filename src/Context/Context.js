@@ -151,6 +151,8 @@ export default function Context({children}) {
   const storedCartItems = localStorage.getItem('Cart-Items');
   const [cartItem,setCartItem]=useState(JSON.parse(storedCartItems) || [])
   const [Cars,setCars]=useState([])
+  const [selectedCarName,setSelectedCarName]=useState(null)
+  const [selectedCarBrand,setSelectedCarBrand]=useState(null)
   
   
   const images=[pic1,pic2,pic3,pic4,pic5,pic6,pic7,pic8,pic9,pic10
@@ -164,7 +166,7 @@ export default function Context({children}) {
       const apiUrl = "https://freetestapi.com/api/v1/cars";
       const searchQuery = query ? "?search=" + encodeURIComponent(query) : "";
       const url = apiUrl + searchQuery;
-     
+      try{
         const response = await fetch(url);
         if (!response.ok) {
           throw new Error("HTTP error! Status:" + response.status);
@@ -177,8 +179,10 @@ export default function Context({children}) {
       }));
 
       setCars(carsWithImages);
-        
-      
+        }
+      catch{
+        console.log('error')
+      }
       if(selectedCarName){
         fetchData('make')
       }else if(selectedCarBrand){
@@ -194,10 +198,18 @@ export default function Context({children}) {
     
    
 
-
-
+  let filterdCarName = Cars
+  
+  if (selectedCarName && selectedCarBrand) {
+    filterdCarName = Cars.filter((car) => car.make === selectedCarName.value && car.model === selectedCarBrand.value);
+  } else if (selectedCarName) {
+    filterdCarName = Cars.filter((car) => car.make === selectedCarName.value);
+  } else if (selectedCarBrand) {
+    filterdCarName = Cars.filter((car) => car.model === selectedCarBrand.value);
+  }
+  console.log(filterdCarName)
   // carname
-  const [selectedCarName,setSelectedCarName]=useState(null)
+  
   const CarsName=Array.from(new Set(Cars.map((e)=>e.make)))
   const CarsNameOptions=CarsName.map((CarName)=>({
        label:CarName,
@@ -210,24 +222,18 @@ export default function Context({children}) {
 
 
   //brand
-  const [selectedCarBrand,setSelectedCarBrand]=useState(null)
-  const CarsBrand=Array.from(new Set(Cars.map((e)=>e.model)))
-  const CarsBrandOptions=CarsBrand.map((CarBrand)=>({
-       label:CarBrand,
-       value:CarBrand
-  }))
+  
+  const CarsBrand=Array.from(new Set(filterdCarName.map((e)=>e.model)))
+  const CarsBrandOptions=CarsBrand.map((CarBrand)=>(
+    {
+      label:CarBrand,
+      value:CarBrand
+ }
+  ))
 
   //  filtering
-  let filterdCarName = Cars
+  
 
-if (selectedCarName && selectedCarBrand) {
-  filterdCarName = Cars.filter((car) => car.make === selectedCarName.value && car.model === selectedCarBrand.value);
-} else if (selectedCarName) {
-  filterdCarName = Cars.filter((car) => car.make === selectedCarName.value);
-} else if (selectedCarBrand) {
-  filterdCarName = Cars.filter((car) => car.model === selectedCarBrand.value);
-}
-console.log(filterdCarName)
 
 
   

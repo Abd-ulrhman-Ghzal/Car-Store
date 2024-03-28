@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import landingCar from '../../images/cars-thumbnail/3.png'
 import * as Faicons from "react-icons/fa";
 import * as Ioicons from "react-icons/io";
@@ -12,7 +12,8 @@ import { CartContext } from '../../Context/Context';
 
 export default function Landing() {
   
-  const {selectedCarName,setSelectedCarName,CarsNameOptions,CarsBrandOptions,setSelectedCarBrand,selectedCarBrand}=useContext(CartContext)
+  const {selectedCarName,setSelectedCarName,CarsNameOptions,CarsBrandOptions,setSelectedCarBrand,selectedCarBrand  }=useContext(CartContext)
+ 
   
 
   return (
@@ -54,7 +55,7 @@ export default function Landing() {
          isClearable
          placeholder='Select Car Name'
          options={CarsNameOptions}
-         onChange={(Select)=>setSelectedCarName(Select)}
+         onChange={(Select)=>{setSelectedCarName(Select)}}
          value={selectedCarName}
          />
          </div>
@@ -91,6 +92,7 @@ export default function Landing() {
          <div className='flex items-center gap-1'>
          <Select
          isClearable
+         isDisabled={selectedCarName?false:true}
          placeholder='Select Car Brand'
          options={CarsBrandOptions}
          onChange={(Select)=>setSelectedCarBrand(Select)}

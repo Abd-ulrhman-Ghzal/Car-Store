@@ -8,7 +8,7 @@ import { useContext, useEffect } from 'react';
 import { CartContext } from './Context/Context';
 
 function App() {
-  const {cartItem,filterdCarName}=useContext(CartContext)
+  const {cartItem,Cars}=useContext(CartContext)
   
 
   useEffect(()=>{
@@ -26,7 +26,7 @@ function App() {
         
         <Route path='/Car-Store/Cart-Order' element={<Cart/>}/>
         
-        {filterdCarName.map((e,index)=>{
+        {Cars.map((e,index)=>{
           return <Route key={index} path={`/Car-Store/Car-Detail/${e.make} ${e.model}`} element={<CarDetails src={e.image} Cartype={`${e.make} ${e.model}`} Price={e.price} EnginCapactiy={e.horsepower} ImageSlider={e.ImageSlider} id={e.id}  />}/>
         })}
         

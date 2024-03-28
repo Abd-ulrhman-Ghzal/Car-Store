@@ -78,9 +78,9 @@ export default function CarDetails({ id, src, Cartype, Price, EnginCapactiy,Imag
   return (
     <>
     <ToastContainer/>
-      <div className='CarDetailimg'>
-        <div className='container mx-auto grid grid-cols-1 md:grid-cols-3 md:gap-4 mt-12 items-center lg:items-start mb-7'>
-          <div className='flex flex-col col-end-3 col-start-1 gap-9 mx-3'>
+      <div className='CarDetailimg '>
+        <div className='container mx-auto grid grid-cols-1 md:grid-cols-3 md:gap-4 mt-12 items-center lg:items-start mb-7 h-svh'>
+          <div className='flex flex-col col-end-3 col-start-1 mx-5 h-full justify-between'>
             <div className='flex flex-col gap-4 mx-9 md:mx-0'>
               <div className='flex items-center gap-2'>
                 <p className='opacity-35'>Type</p>
@@ -97,16 +97,9 @@ export default function CarDetails({ id, src, Cartype, Price, EnginCapactiy,Imag
               <img src={src} alt='' className='max-w-full rounded-3xl' />
             </div>
 
-            <div className=' gap-5 items-center content-center self-center md:self-start my-5 hidden lg:flex'>
-              
-              <div className='flex justify-center items-center'>
-              <FAicons.FaArrowLeftLong className='arrow text-2xl col-start-1 col-end-2' />
-              </div>
+            <div className=' gap-5 justify-center items-center md:self-start my-5 hidden lg:flex w-full'>
               <div className='flex gap-5 col-start-2 col-end-6'>
               <CarsSlider images={ImageSlider} />
-              </div>
-              <div className='flex justify-center items-center'>
-              <FAicons.FaArrowRightLong className='arrow text-2xl col-start-6 col-end-7' />
               </div>
             </div>
 
@@ -121,7 +114,7 @@ export default function CarDetails({ id, src, Cartype, Price, EnginCapactiy,Imag
             </div>
 
           </div>
-          <div className='flex flex-col gap-6 mx-9 md:mx-0 h-full justify-around pb-10 pt-10'>
+          <div className='flex flex-col gap-6 mx-5 h-full justify-around pb-10 pt-10'>
             <div>
               <h1 className='main-text'>Details</h1>
             </div>
