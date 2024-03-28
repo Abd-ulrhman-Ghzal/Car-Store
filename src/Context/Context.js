@@ -164,7 +164,7 @@ export default function Context({children}) {
       const apiUrl = "https://freetestapi.com/api/v1/cars";
       const searchQuery = query ? "?search=" + encodeURIComponent(query) : "";
       const url = apiUrl + searchQuery;
-      try{
+     
         const response = await fetch(url);
         if (!response.ok) {
           throw new Error("HTTP error! Status:" + response.status);
@@ -172,15 +172,13 @@ export default function Context({children}) {
         const Cars = await response.json();
         const carsWithImages = Cars.map((car, index) => ({
           ...car,
-          image: images[index % images.length],
-          ImageSlider:ImageSlider // Modulo operation to cycle through images if cars exceed images length
+          image: images[index % images.length], // Modulo operation to cycle through images if cars exceed images length
+          ImageSlider:ImageSlider 
       }));
 
       setCars(carsWithImages);
-        }
-      catch{
-        console.log('error')
-      }
+        
+      
       if(selectedCarName){
         fetchData('make')
       }else if(selectedCarBrand){
