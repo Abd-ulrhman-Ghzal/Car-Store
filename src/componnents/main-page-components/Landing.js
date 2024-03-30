@@ -10,12 +10,14 @@ import Select from 'react-select'
 import { CartContext } from '../../Context/Context';
 import 'rsuite/Dropdown/styles/index.css';
 import {  Input,Dropdown } from 'rsuite';
+import DropdownItem from 'rsuite/esm/Dropdown/DropdownItem';
 
 
 
 export default function Landing() {
   const {selectedCarName,setSelectedCarName,CarsNameOptions,CarsBrandOptions,setSelectedCarBrand,
-    selectedCarBrand, setMinValue, setMaxValue,CarsFuelTypeOptions,selectedFuelType,setSelectedFuelType }=useContext(CartContext)
+    selectedCarBrand, setMinValue, setMaxValue,CarsFuelTypeOptions,selectedFuelType,
+    setSelectedFuelType,CarsFuelType }=useContext(CartContext)
   
   
   return (
@@ -47,12 +49,12 @@ export default function Landing() {
     </div>
     </div>
     <div className='container mx-auto'>
-      <div className='flex flex-wrap sm:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-center items-center gap-5 px-10 py-5 mt-10  border drop-shadow rounded-3xl mb-5'>
+      <div className='flex flex-wrap sm:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 sm:justify-center items-center gap-5 px-10 py-5 mt-10  border drop-shadow rounded-3xl mb-5'>
       <div className=' flex flex-col gap-4 w-fit h-full'>
         <h3>Name</h3>
         <div className='flex items-center gap-5'>
          <Faicons.FaCar/>
-         <div className='flex items-center gap-1 flex-grow'>
+         <div className='flex items-center gap-1 flex-grow z-40'>
          <Select
          classNamePrefix={'w-full'}
          isClearable
@@ -66,9 +68,9 @@ export default function Landing() {
       </div>
       <div className=' flex flex-col gap-4 w-fit h-full'>
         <h3>Price</h3>
-        <div className='flex items-center justify-start gap-5 '>
+        <div className='flex items-center justify-start gap-5 z-30'>
          <Tbicons.TbMoneybag/>
-           <Dropdown className='flex flex-col gap-4 w-fit' title='Select Price'>
+           <Dropdown className='flex flex-col gap-4 w-fit z-0' title='Select Price'>
               <div className='py-2 px-4'>
                 <div className='flex gap-3 justify-between items-center'>
                 <p>Min</p>
@@ -89,7 +91,7 @@ export default function Landing() {
         <h3>FuelType</h3>
       <div className='flex items-center gap-5'>
          <AIicons.AiOutlineRise/>
-       <div className='flex items-center gap-1'>
+       <div className='flex items-center gap-1 z-20'>         
          <Select
          isClearable
          placeholder='Select FuelType'
@@ -104,7 +106,7 @@ export default function Landing() {
         <h3>Brand</h3>
         <div className='flex items-center gap-5'>
          <Tbicons.TbBrandFlutter/>
-         <div className='flex items-center gap-1'>
+         <div className='flex items-center gap-1 z-10'>
          <Select
          isClearable
          isDisabled={selectedCarName?false:true}

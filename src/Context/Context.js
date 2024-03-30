@@ -301,7 +301,7 @@ const DetailRemoveCart = (id, color) => {
         selectedCarPrice,setSelectedCarPrice,maxValueFromCars,
         minValue, setMinValue,
         maxValue, setMaxValue,
-        CarsFuelTypeOptions,
+        CarsFuelTypeOptions,CarsFuelType,
         selectedFuelType,setSelectedFuelType
       }
       }>
