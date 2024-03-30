@@ -1,5 +1,5 @@
-import React, { useContext, useState } from 'react'
-import landingCar from '../../images/cars-thumbnail/3.png'
+import React, { useContext } from 'react'
+import landingCar from '../../images/cars-thumbnail/5.png'
 import * as Faicons from "react-icons/fa";
 import * as Ioicons from "react-icons/io";
 import * as Tbicons from 'react-icons/tb'
@@ -8,14 +8,16 @@ import { Link } from 'react-router-dom';
 import {motion, spring} from 'framer-motion'
 import Select from 'react-select'
 import { CartContext } from '../../Context/Context';
+import 'rsuite/Dropdown/styles/index.css';
+import {  Input,Dropdown } from 'rsuite';
+
 
 
 export default function Landing() {
+  const {selectedCarName,setSelectedCarName,CarsNameOptions,CarsBrandOptions,setSelectedCarBrand,
+    selectedCarBrand, setMinValue, setMaxValue,CarsFuelTypeOptions,selectedFuelType,setSelectedFuelType }=useContext(CartContext)
   
-  const {selectedCarName,setSelectedCarName,CarsNameOptions,CarsBrandOptions,setSelectedCarBrand,selectedCarBrand  }=useContext(CartContext)
- 
   
-
   return (
     <>
     <div className='backimg flex items-center min-h-svh'>
@@ -28,7 +30,7 @@ export default function Landing() {
           <p className='landing-p'>The culmimination of comfort,luxury,and powerrul living is embodied <br/>in the First-Ever BMWX7 -the biggest BMW ever built.</p>
         </div>
         <div>
-        <Link to='/Car-Store/Car-Detail/Ford Mustang' className='rounded-3xl border p-3 main-btn' >EXPLORE</Link>
+        <Link to='/Car-Store/Car-Detail/Nissan Altima' className='rounded-3xl border p-3 main-btn' >EXPLORE</Link>
         </div>
       </div>
       
@@ -45,13 +47,14 @@ export default function Landing() {
     </div>
     </div>
     <div className='container mx-auto'>
-      <div className='grid sm:grid-cols-2 lg:grid-cols-4 justify-center items-center gap-10 px-10 py-5 mt-10  border drop-shadow rounded-3xl mb-5'>
-      <div className=' flex flex-col gap-4 w-fit'>
+      <div className='flex flex-wrap sm:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-center items-center gap-5 px-10 py-5 mt-10  border drop-shadow rounded-3xl mb-5'>
+      <div className=' flex flex-col gap-4 w-fit h-full'>
         <h3>Name</h3>
-        <div className='flex items-center gap-3'>
+        <div className='flex items-center gap-5'>
          <Faicons.FaCar/>
-         <div className='flex items-center gap-1'>
+         <div className='flex items-center gap-1 flex-grow'>
          <Select
+         classNamePrefix={'w-full'}
          isClearable
          placeholder='Select Car Name'
          options={CarsNameOptions}
@@ -61,33 +64,45 @@ export default function Landing() {
          </div>
         </div>
       </div>
-      <div className=' flex flex-col gap-4 w-fit'>
+      <div className=' flex flex-col gap-4 w-fit h-full'>
         <h3>Price</h3>
-        <div className='flex items-center gap-3'>
+        <div className='flex items-center justify-start gap-5 '>
          <Tbicons.TbMoneybag/>
-         <div className='flex items-center gap-1'>
-         
-         
-
-         </div>
+           <Dropdown className='flex flex-col gap-4 w-fit' title='Select Price'>
+              <div className='py-2 px-4'>
+                <div className='flex gap-3 justify-between items-center'>
+                <p>Min</p>
+                <Input type='search' className='py-3 px-2 rounded-lg' placeholder='Enter Min Price' defaultValue={undefined} onChange={(input)=>input === undefined?setMinValue(undefined):setMinValue(input)}/>
+                <p>$</p>
+                </div>
+                 
+                <div className='flex gap-3 justify-between items-center'>
+                <p>Max</p>
+                <Input type='search' className='py-3 px-2 rounded-lg' placeholder='Enter Max Price' defaultValue={undefined} onChange={(input)=>input === undefined?setMaxValue(undefined):setMaxValue(input)}/>
+                <p>$</p>
+                </div>    
+              </div>         
+         </Dropdown>
         </div>
       </div>
-      <div className=' flex flex-col gap-4 w-fit'>
-        <h3>Engine Capicity</h3>
-      <div className='flex items-center gap-3'>
+      <div className=' flex flex-col gap-4 w-fit h-full'>
+        <h3>FuelType</h3>
+      <div className='flex items-center gap-5'>
          <AIicons.AiOutlineRise/>
        <div className='flex items-center gap-1'>
-         <p>Choose capicity</p>
-         <div className='flex flex-col items-center justify-center'>
-          <Ioicons.IoMdArrowDropup/>
-         <Ioicons.IoMdArrowDropdown/>
-         </div>    
+         <Select
+         isClearable
+         placeholder='Select FuelType'
+         options={CarsFuelTypeOptions}
+         onChange={(Select)=>setSelectedFuelType(Select)}
+         value={selectedFuelType}
+         />  
        </div>
       </div>
       </div>
-      <div className=' flex flex-col gap-4 w-fit'>
+      <div className=' flex flex-col gap-4 w-fit h-full'>
         <h3>Brand</h3>
-        <div className='flex items-center gap-3'>
+        <div className='flex items-center gap-5'>
          <Tbicons.TbBrandFlutter/>
          <div className='flex items-center gap-1'>
          <Select

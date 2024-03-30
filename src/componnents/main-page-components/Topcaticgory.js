@@ -12,11 +12,10 @@ import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 
 export default function Topcaticgory() {
-  const { cartItem, setCartItem, Cars,filterdCarName} = useContext(CartContext);
+  const { cartItem, setCartItem, Cars,filterdCarName,current,setCurrent} = useContext(CartContext);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const items=6;
-  const [current,setCurrent]=useState(1)
   const NbPage=Math.ceil(filterdCarName.length / items)
 
   const startIndex=(current-1) * items
@@ -139,11 +138,11 @@ export default function Topcaticgory() {
           </h1>
           }
           <div className='flex gap-12 items-center justify-center'>
-            <FaArrowLeft className='cursor-pointer ' onClick={()=>current === 1 ? null:setCurrent(current - 1)}/>
+            <FaArrowLeft className='cursor-pointer ' onClick={()=>current === 1 ? null:setCurrent(current=>current - 1)}/>
             {
               <h1 className='px-4 py-2 rounded-md border'>{current}</h1>
             }
-            <FaArrowRight className='cursor-pointer' onClick={()=>current=== NbPage?null:setCurrent(current + 1)}/>
+            <FaArrowRight className='cursor-pointer' onClick={()=>current=== NbPage?null:setCurrent(current=>current + 1)}/>
           </div>
       </div>
     </motion.div>

@@ -153,7 +153,12 @@ export default function Context({children}) {
   const [Cars,setCars]=useState([])
   const [selectedCarName,setSelectedCarName]=useState(null)
   const [selectedCarBrand,setSelectedCarBrand]=useState(null)
-  
+  const [selectedCarPrice,setSelectedCarPrice]=useState(null)
+  const [selectedFuelType,setSelectedFuelType]=useState(null)
+  const [current,setCurrent]=useState(1) //pagination
+  const [minValue, setMinValue] = useState(undefined);
+   const [maxValue, setMaxValue] = useState(undefined);
+ 
   
   const images=[pic1,pic2,pic3,pic4,pic5,pic6,pic7,pic8,pic9,pic10
   ,pic11,pic12,pic13,pic14,pic15,pic16,pic17,pic18,pic19,pic20,
@@ -192,22 +197,62 @@ export default function Context({children}) {
     fetchData()
   }
   ,[])
- 
-
-    
-    
-   
 
   let filterdCarName = Cars
   
-  if (selectedCarName && selectedCarBrand) {
-    filterdCarName = Cars.filter((car) => car.make === selectedCarName.value && car.model === selectedCarBrand.value);
-  } else if (selectedCarName) {
-    filterdCarName = Cars.filter((car) => car.make === selectedCarName.value);
-  } else if (selectedCarBrand) {
-    filterdCarName = Cars.filter((car) => car.model === selectedCarBrand.value);
+  //  filtering
+
+  if (selectedCarName) {
+   filterdCarName = Cars.filter((car) => car.make === selectedCarName.value );
   }
-  console.log(filterdCarName)
+  if(selectedFuelType){
+    filterdCarName = Cars.filter((car) => car.fuelType === selectedFuelType.value );
+  }
+  if (minValue || maxValue) {
+   filterdCarName = Cars.filter((car) => (parseInt(minValue) < car.price || car.price <= parseInt(maxValue)));
+ }
+   if (minValue && maxValue) {
+    filterdCarName = Cars.filter((car) => (parseInt(minValue) < car.price && car.price <= parseInt(maxValue)));
+  }
+  if (selectedCarName && selectedCarBrand ) {
+    filterdCarName = Cars.filter((car) => car.make === selectedCarName.value && car.model === selectedCarBrand.value );
+  }
+  if (selectedCarName && selectedFuelType ) {
+    filterdCarName = Cars.filter((car) => car.make === selectedCarName.value && car.fuelType === selectedFuelType.value );
+  }
+  if (selectedCarName && selectedCarBrand && selectedFuelType) {
+    filterdCarName = Cars.filter((car) => car.make === selectedCarName.value && car.model === selectedCarBrand.value && car.fuelType === selectedFuelType.value);
+  }
+  if (selectedCarName && selectedCarBrand  && (minValue || maxValue)){
+    filterdCarName = Cars.filter((car) => car.make === selectedCarName.value && car.model === selectedCarBrand.value && (parseInt(minValue) < car.price || car.price <= parseInt(maxValue)));
+  }
+  if (selectedCarName && selectedCarBrand  && (minValue && maxValue)){
+    filterdCarName = Cars.filter((car) => car.make === selectedCarName.value && car.model === selectedCarBrand.value && (parseInt(minValue) < car.price && car.price <= parseInt(maxValue)));
+  }
+  if (selectedCarName && selectedCarBrand && selectedFuelType  && (minValue || maxValue)){
+    filterdCarName = Cars.filter((car) => car.make === selectedCarName.value && car.model === selectedCarBrand.value && car.fuelType === selectedFuelType.value && (parseInt(minValue) < car.price || car.price <= parseInt(maxValue)));
+  }
+  if (selectedCarName && selectedCarBrand && selectedFuelType && (minValue && maxValue)){
+    filterdCarName = Cars.filter((car) => car.make === selectedCarName.value && car.model === selectedCarBrand.value&& car.fuelType === selectedFuelType.value && (parseInt(minValue) < car.price && car.price <= parseInt(maxValue)));
+  }
+  if(selectedCarName && (maxValue || minValue)){
+    filterdCarName = Cars.filter((car) => car.make === selectedCarName.value && (car.price <= parseInt(maxValue) || parseInt(minValue) < car.price))
+  }
+  if(selectedCarName && (maxValue && minValue)){
+    filterdCarName = Cars.filter((car) => car.make === selectedCarName.value && (car.price <= parseInt(maxValue) && parseInt(minValue) < car.price))
+  }
+  if(selectedFuelType && (maxValue || minValue)){
+    filterdCarName = Cars.filter((car) => car.fuelType === selectedFuelType.value && (car.price <= parseInt(maxValue) || parseInt(minValue) < car.price))
+  }
+  if(selectedFuelType && (maxValue && minValue)){
+    filterdCarName = Cars.filter((car) => car.fuelType === selectedFuelType.value && (car.price <= parseInt(maxValue) && parseInt(minValue) < car.price))
+  }
+  if(selectedCarName && selectedCarBrand && selectedFuelType && ((minValue || maxValue) || (minValue && maxValue))){
+    filterdCarName = Cars.filter((car) => car.make === selectedCarName.value && car.model === selectedCarBrand.value && car.fuelType === selectedFuelType.value
+    && ((car.price <= parseInt(maxValue) || parseInt(minValue) < car.price) || (car.price <= parseInt(maxValue) && parseInt(minValue) < car.price))
+    );
+  }
+  
   // carname
   
   const CarsName=Array.from(new Set(Cars.map((e)=>e.make)))
@@ -216,10 +261,15 @@ export default function Context({children}) {
        value:CarName
   }))
   // price
-  
-
-  //Engin
-
+  const maxValueFromCars=Array.from(new Set(filterdCarName.map((e)=>e.price)))
+  //FuelType
+  const CarsFuelType=Array.from(new Set(filterdCarName.map((e)=>e.fuelType)))
+  const CarsFuelTypeOptions=CarsFuelType.map((FuelType)=>(
+    {
+      label:FuelType,
+      value:FuelType
+ }
+  ))
 
   //brand
   
@@ -231,15 +281,6 @@ export default function Context({children}) {
  }
   ))
 
-  //  filtering
-  
-
-
-
-  
-
- 
-
 
 
 const DetailRemoveCart = (id, color) => {
@@ -250,7 +291,20 @@ const DetailRemoveCart = (id, color) => {
   });
 };
   return (
-    <CartContext.Provider value={{cartItem,setCartItem,DetailRemoveCart,Cars,selectedCarName,setSelectedCarName,filterdCarName,CarsNameOptions,CarsBrandOptions,setSelectedCarBrand,selectedCarBrand}}>
+    <CartContext.Provider value={
+      {cartItem,
+        setCartItem,DetailRemoveCart,
+        Cars,selectedCarName,setSelectedCarName
+        ,filterdCarName,CarsNameOptions
+        ,CarsBrandOptions,setSelectedCarBrand
+        ,selectedCarBrand,current,setCurrent,
+        selectedCarPrice,setSelectedCarPrice,maxValueFromCars,
+        minValue, setMinValue,
+        maxValue, setMaxValue,
+        CarsFuelTypeOptions,
+        selectedFuelType,setSelectedFuelType
+      }
+      }>
         {children}
     </CartContext.Provider>
   )
