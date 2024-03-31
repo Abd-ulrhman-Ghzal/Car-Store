@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Car-Store/static/css/main.bb2ddc79.css",
-    "main.js": "/Car-Store/static/js/main.77c541e5.js",
+    "main.js": "/Car-Store/static/js/main.533f3b88.js",
     "static/media/18.png": "/Car-Store/static/media/18.2f80bdd8ebaff87a2789.png",
     "static/media/14.png": "/Car-Store/static/media/14.16813f14f47016ce786b.png",
     "static/media/19.png": "/Car-Store/static/media/19.9e2b88c1914120ab3441.png",
@@ -43,10 +43,10 @@
     "static/media/Vector 2.png": "/Car-Store/static/media/Vector 2.4222c8448d6d4d310f0b.png",
     "index.html": "/Car-Store/index.html",
     "main.bb2ddc79.css.map": "/Car-Store/static/css/main.bb2ddc79.css.map",
-    "main.77c541e5.js.map": "/Car-Store/static/js/main.77c541e5.js.map"
+    "main.533f3b88.js.map": "/Car-Store/static/js/main.533f3b88.js.map"
   },
   "entrypoints": [
     "static/css/main.bb2ddc79.css",
-    "static/js/main.77c541e5.js"
+    "static/js/main.533f3b88.js"
   ]
 }
