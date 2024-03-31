@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import * as IOicons from 'react-icons/io';
-import * as FAicons from 'react-icons/fa6';
 import CarsSlider from './CarsSlider';
 import * as MDicon from 'react-icons/md';
 import { Link } from 'react-router-dom';
@@ -90,7 +89,7 @@ export default function CarDetails({ id, src, Cartype, Price, EnginCapactiy,Imag
                 <p className='opacity-70'>Details</p>
               </div>
               <h1 className='main-text'>{Cartype}</h1>
-              <p className='EC text-3xl'>{EnginCapactiy}</p>
+              <p className='EC text-3xl'>{EnginCapactiy} CC</p>
             </div>
             <div className='flex justify-center items-center '>
               
